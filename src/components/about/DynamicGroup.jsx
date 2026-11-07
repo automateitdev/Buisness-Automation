@@ -1,5 +1,10 @@
+'use client';
+
 import Link from 'next/link';
-import { dynamicGroupData as d } from './dynamicGroupData';
+import { dynamicGroupData } from './dynamicGroupData';
+import { ABOUT_UI_EN } from './aboutUi';
+import { DYNAMIC_GROUP_BN, ABOUT_UI_BN } from '@/i18n/bn/about';
+import { useLocalized } from '@/i18n/LanguageProvider';
 
 /* ─── Decorative background shapes ─── */
 function HeroOrbs() {
@@ -61,6 +66,8 @@ function TimelineItem({ year, event, index }) {
 
 /* ─── Main component ─── */
 export default function DynamicGroup() {
+  const d = useLocalized(dynamicGroupData, DYNAMIC_GROUP_BN);
+  const t = useLocalized(ABOUT_UI_EN, ABOUT_UI_BN).group;
   const { hero, intro, stats, units, values, milestones, cta } = d;
 
   return (
@@ -99,7 +106,7 @@ export default function DynamicGroup() {
             <div className="dg-visual-core">DG</div>
           </div>
           <div className="dg-intro-copy">
-            <span className="dg-section-label">Our Identity</span>
+            <span className="dg-section-label">{t.identity}</span>
             <h2 className="dg-section-h2">{intro.heading}</h2>
             {intro.paragraphs.map((p) => (
               <p key={p.slice(0, 30)} className="dg-intro-p">{p}</p>
@@ -112,8 +119,8 @@ export default function DynamicGroup() {
       <section className="dg-section dg-units-section">
         <div className="container">
           <div className="dg-section-header">
-            <span className="dg-section-label">Our Structure</span>
-            <h2 className="dg-section-h2">Business Units Within the Group</h2>
+            <span className="dg-section-label">{t.structure}</span>
+            <h2 className="dg-section-h2">{t.unitsTitle}</h2>
           </div>
           <div className="dg-units-grid">
             {units.map((u) => (
@@ -127,8 +134,8 @@ export default function DynamicGroup() {
       <section className="dg-section dg-values-section">
         <div className="container">
           <div className="dg-section-header">
-            <span className="dg-section-label">What We Stand For</span>
-            <h2 className="dg-section-h2">Group-Wide Operating Principles</h2>
+            <span className="dg-section-label">{t.standFor}</span>
+            <h2 className="dg-section-h2">{t.valuesTitle}</h2>
           </div>
           <div className="dg-values-grid">
             {values.map((v) => (
@@ -142,8 +149,8 @@ export default function DynamicGroup() {
       <section className="dg-section dg-timeline-section">
         <div className="container">
           <div className="dg-section-header">
-            <span className="dg-section-label">Our Journey</span>
-            <h2 className="dg-section-h2">Milestones That Shaped The Group</h2>
+            <span className="dg-section-label">{t.journey}</span>
+            <h2 className="dg-section-h2">{t.milestonesTitle}</h2>
           </div>
           <div className="dg-timeline">
             <div className="dg-tl-spine" />
@@ -158,13 +165,13 @@ export default function DynamicGroup() {
       <section className="dg-cta-section">
         <div className="container dg-cta-inner">
           <div className="dg-cta-copy">
-            <span className="dg-section-label">Next Step</span>
+            <span className="dg-section-label">{t.nextStep}</span>
             <h2 className="dg-cta-heading">{cta.heading}</h2>
             <p className="dg-cta-text">{cta.text}</p>
           </div>
           <div className="dg-cta-actions">
-            <Link href="/contact" className="btn-primary">Contact Us</Link>
-            <Link href="/about/our-company" className="btn-outline-blue">Our Company</Link>
+            <Link href="/contact" className="btn-primary">{t.contactUs}</Link>
+            <Link href="/about/our-company" className="btn-outline-blue">{t.ourCompany}</Link>
           </div>
         </div>
       </section>

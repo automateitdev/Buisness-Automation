@@ -2,8 +2,10 @@
 
 import { useEffect, useRef } from 'react';
 import PageHero from '../PageHero';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { SERVICES_BN, SERVICE_PAGE_UI } from '@/i18n/bn/services';
 
-function ServiceVisual({ theme, side = 'left' }) {
+function ServiceVisual({ theme, side = 'left', ui }) {
   if (theme === 'software') {
     return (
       <div className={`svc-story-visual svc-story-visual-software svc-story-${side}`} aria-hidden="true">
@@ -16,8 +18,8 @@ function ServiceVisual({ theme, side = 'left' }) {
             <div className="svc-code-row long" />
           </div>
         </div>
-        <div className="svc-floating-note svc-note-a">Secure Build</div>
-        <div className="svc-floating-note svc-note-b">Agile Sprint</div>
+        <div className="svc-floating-note svc-note-a">{ui.secureBuild}</div>
+        <div className="svc-floating-note svc-note-b">{ui.agileSprint}</div>
       </div>
     );
   }
@@ -92,12 +94,12 @@ function ServiceVisual({ theme, side = 'left' }) {
   return null;
 }
 
-function StorySection({ section, theme, reverse = false }) {
+function StorySection({ section, theme, ui, reverse = false }) {
   return (
     <section className="svc-section">
       <div className={`container svc-story-grid${reverse ? ' is-reverse' : ''}`}>
         <div className="svc-story-media animate-on-scroll">
-          <ServiceVisual theme={theme} side={reverse ? 'right' : 'left'} />
+          <ServiceVisual theme={theme} side={reverse ? 'right' : 'left'} ui={ui} />
         </div>
         <div className="svc-story-copy animate-on-scroll">
           <span className="svc-section-kicker">{section.label}</span>
@@ -124,7 +126,7 @@ function SoftwareFeatureTree({ features }) {
   );
 }
 
-function MobileFeatureNodes({ title, features }) {
+function MobileFeatureNodes({ title, features, ui }) {
   const topRow = features.slice(0, 3);
   const bottomRow = features.slice(3, 6);
 
@@ -144,7 +146,7 @@ function MobileFeatureNodes({ title, features }) {
       <div className="svc-mobile-feature-core">
         <div className="svc-mobile-core-panel">
           <div className="svc-mobile-core-copy">
-            <span>Mobile App</span>
+            <span>{ui.mobileApp}</span>
             <strong>{title}</strong>
           </div>
           <div className="svc-mobile-core-device">
@@ -219,7 +221,7 @@ function HostingChecklist({ features }) {
   );
 }
 
-function FeatureSection({ data }) {
+function FeatureSection({ data, ui }) {
   const { featureSectionTitle, featureSectionLabel, featureStyle, features, headline } = data;
 
   return (
@@ -231,7 +233,7 @@ function FeatureSection({ data }) {
         </div>
 
         <div className="animate-on-scroll">
-          {featureStyle === 'mobile-nodes' && <MobileFeatureNodes title={headline} features={features} />}
+          {featureStyle === 'mobile-nodes' && <MobileFeatureNodes title={headline} features={features} ui={ui} />}
           {featureStyle === 'web-flow' && <WebFeatureFlow features={features} />}
           {featureStyle === 'sms-cards' && <SmsFeatureCards features={features} />}
           {featureStyle === 'hosting-checklist' && <HostingChecklist features={features} />}
@@ -242,7 +244,11 @@ function FeatureSection({ data }) {
   );
 }
 
-export default function ServicePage({ data }) {
+const NO_OVERLAY = {};
+
+export default function ServicePage({ data: englishData }) {
+  const data = useLocalized(englishData, SERVICES_BN[englishData.slug] ?? NO_OVERLAY);
+  const ui = useLocalized(SERVICE_PAGE_UI.en, SERVICE_PAGE_UI.bn);
   const { submenuName, shortDescription, theme, introSection, supportSection } = data;
   const ref = useRef(null);
 
@@ -263,9 +269,9 @@ export default function ServicePage({ data }) {
     <div className={`service-redesign-page theme-${theme}`} ref={ref}>
       <PageHero title={submenuName} subtitle={shortDescription} theme="teal" compact />
 
-      <StorySection section={introSection} theme={theme} />
-      <FeatureSection data={data} />
-      <StorySection section={supportSection} theme={theme} reverse />
+      <StorySection section={introSection} theme={theme} ui={ui} />
+      <FeatureSection data={data} ui={ui} />
+      <StorySection section={supportSection} theme={theme} ui={ui} reverse />
     </div>
   );
 }

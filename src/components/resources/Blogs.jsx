@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { blogsData as d } from './resourcesData';
+import { blogsData } from './resourcesData';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { RESOURCES_BN, RESOURCES_UI_BN } from '@/i18n/bn/resources';
+import { RESOURCES_UI_EN } from './resourcesUi';
 import PageHero from '../PageHero';
 
 const INITIAL_POST_COUNT = 6;
@@ -15,8 +18,8 @@ const CATEGORY_COLORS = {
   Business: { bg: '#fff1f2', color: '#be123c', dot: '#f43f5e' },
 };
 
-function BlogCard({ category, title, excerpt, readTime, date, slug, index }) {
-  const cat = CATEGORY_COLORS[category] || { bg: '#f0f6ff', color: '#0057A8', dot: '#0096D6' };
+function BlogCard({ category, colorKey, title, excerpt, readTime, date, slug, index, readLabel }) {
+  const cat = CATEGORY_COLORS[colorKey] || { bg: '#f0f6ff', color: '#0057A8', dot: '#0096D6' };
   return (
     <article
       className="blog-card blog-card-animated"
@@ -38,7 +41,7 @@ function BlogCard({ category, title, excerpt, readTime, date, slug, index }) {
             {readTime}
           </span>
           <Link href={`/resources/blogs/${slug}`} className="blog-read-link">
-            Read Article
+            {readLabel}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </Link>
         </div>
@@ -48,6 +51,8 @@ function BlogCard({ category, title, excerpt, readTime, date, slug, index }) {
 }
 
 export default function Blogs() {
+  const d = useLocalized(blogsData, RESOURCES_BN.blogs);
+  const ui = useLocalized(RESOURCES_UI_EN, RESOURCES_UI_BN);
   const { hero, featuredPosts } = d;
   const [showAll, setShowAll] = useState(false);
   const visiblePosts = showAll ? featuredPosts : featuredPosts.slice(0, INITIAL_POST_COUNT);
@@ -62,12 +67,12 @@ export default function Blogs() {
       <section className="blogs-grid-section">
         <div className="container">
           <div className="blogs-section-head">
-            <div className="blogs-section-label">Latest Articles</div>
-            <h2 className="blogs-section-h2">Browse Our Recent Blogs</h2>
+            <div className="blogs-section-label">{ui.latestArticles}</div>
+            <h2 className="blogs-section-h2">{ui.browseBlogs}</h2>
           </div>
           <div className="resource-clean-grid blog-posts-grid">
             {visiblePosts.map((post, index) => (
-              <BlogCard key={post.slug} {...post} index={index} />
+              <BlogCard key={post.slug} {...post} colorKey={blogsData.featuredPosts[index].category} readLabel={ui.readArticle} index={index} />
             ))}
           </div>
           {hasMore && (
@@ -78,7 +83,7 @@ export default function Blogs() {
                 onClick={() => setShowAll(true)}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-                See More
+                {ui.seeMore}
               </button>
             </div>
           )}

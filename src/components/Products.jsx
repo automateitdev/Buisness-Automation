@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { NAV_ITEMS } from '@/data/siteContent';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { PRODUCTS_SECTION_BN } from '@/i18n/bn/home-products-services';
 
 const PRODUCT_DETAILS = {
   '/products/dynamic-academic-erp': {
@@ -31,7 +33,14 @@ const PRODUCT_DETAILS = {
   },
 };
 
+const PRODUCTS_SECTION = {
+  heading: 'Software products built for real operational work',
+  sub: 'Explore all six product lines as a responsive card grid. Each card opens the related product page directly.',
+  details: PRODUCT_DETAILS,
+};
+
 export default function Products() {
+  const t = useLocalized(PRODUCTS_SECTION, PRODUCTS_SECTION_BN);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -53,18 +62,17 @@ export default function Products() {
   const cards = useMemo(() => (
     productLinks.map((item) => ({
       ...item,
-      ...PRODUCT_DETAILS[item.href],
+      ...t.details[item.href],
+      label: t.details[item.href]?.label ?? item.label,
     }))
-  ), [productLinks]);
+  ), [productLinks, t]);
 
   return (
     <section id="products" className="products-section products-section-refined" ref={sectionRef} aria-labelledby="products-heading">
       <div className="container">
         <div className="section-header left animate-on-scroll products-section-header-refined">
-          <h2 className="section-h2" id="products-heading">Software products built for real operational work</h2>
-          <p className="section-sub">
-            Explore all six product lines as a responsive card grid. Each card opens the related product page directly.
-          </p>
+          <h2 className="section-h2" id="products-heading">{t.heading}</h2>
+          <p className="section-sub">{t.sub}</p>
         </div>
 
         <div className="product-grid product-grid-refined">

@@ -1,4 +1,8 @@
+'use client';
+
 import PageHero from '../PageHero';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { PRODUCTS_BN } from '@/i18n/bn/products';
 
 function ProductLineIcon({ name }) {
   const icons = {
@@ -54,7 +58,10 @@ function ModuleCard({ icon, name, description }) {
   );
 }
 
-export default function ProductPage({ data }) {
+const NO_OVERLAY = {};
+
+export default function ProductPage({ data: englishData }) {
+  const data = useLocalized(englishData, PRODUCTS_BN[englishData.slug] ?? NO_OVERLAY);
   const { hero, intro, modules = [] } = data;
   const colorClass = `prod-color-${hero.color || 'blue'}`;
 

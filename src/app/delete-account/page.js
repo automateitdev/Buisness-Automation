@@ -1,4 +1,5 @@
-import StaticInfoPage from '@/components/StaticInfoPage';
+import LocalizedStaticInfoPage from '@/components/LocalizedStaticInfoPage';
+import { DELETE_ACCOUNT_BN } from '@/i18n/bn/staticPages';
 
 export const metadata = {
   title: 'Delete Account — Automate IT Limited',
@@ -7,7 +8,8 @@ export const metadata = {
 
 export default function DeleteAccountPage() {
   return (
-    <StaticInfoPage
+    <LocalizedStaticInfoPage
+      bn={DELETE_ACCOUNT_BN}
       title="Delete Account"
       eyebrow="Support / Delete Account"
       summary="Account removal and access-change requests can be reviewed through our support and client service channels."

@@ -3,7 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { blogsData, testimonialsData, tutorialsData } from '@/components/resources/resourcesData';
+import { blogsData as blogsEn, testimonialsData as testimonialsEn, tutorialsData as tutorialsEn } from '@/components/resources/resourcesData';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { RESOURCES_BN } from '@/i18n/bn/resources';
+import { HOME_BN } from '@/i18n/bn/home';
+import { HOME_EN } from './homeUi';
 
 function getYoutubeVideoId(url) {
   const match = url.match(/(?:v=|youtu\.be\/|embed\/)([^&?/]+)/);
@@ -12,6 +16,10 @@ function getYoutubeVideoId(url) {
 
 export default function ImpactAndBlog() {
   const ref = useRef(null);
+  const blogsData = useLocalized(blogsEn, RESOURCES_BN.blogs);
+  const testimonialsData = useLocalized(testimonialsEn, RESOURCES_BN.testimonials);
+  const tutorialsData = useLocalized(tutorialsEn, RESOURCES_BN.tutorials);
+  const t = useLocalized(HOME_EN, HOME_BN).impact;
   const [blogPage, setBlogPage] = useState(0);
   const postsPerPage = 3;
   const totalPages = Math.ceil(blogsData.featuredPosts.length / postsPerPage);
@@ -42,12 +50,12 @@ export default function ImpactAndBlog() {
         <div className="container">
           <div className="home-media-grid">
             <div className="home-media-copy animate-slide-left">
-              <span className="section-label">Product Tutorial Center</span>
-              <h2 className="section-h2" id="tutorial-center-heading">Product Tutorial Center</h2>
+              <span className="section-label">{t.tutorial.label}</span>
+              <h2 className="section-h2" id="tutorial-center-heading">{t.tutorial.heading}</h2>
               <p className="section-sub">
-                Learning videos, onboarding guidance, and quick product walkthroughs to help teams train faster and use every module with confidence.
+                {t.tutorial.text}
               </p>
-              <Link href="/tutorial" className="btn-secondary">Watch Now →</Link>
+              <Link href="/tutorial" className="btn-secondary">{t.tutorial.cta}</Link>
             </div>
 
             <a className="home-video-preview animate-slide-right" href={tutorialVideo.youtubeUrl} target="_blank" rel="noreferrer">
@@ -62,7 +70,7 @@ export default function ImpactAndBlog() {
                 <span className="home-video-play">▶</span>
               </div>
               <div className="home-video-meta">
-                <span>Tutorial Preview</span>
+                <span>{t.tutorial.preview}</span>
                 <strong>{tutorialVideo.title}</strong>
               </div>
             </a>
@@ -74,12 +82,12 @@ export default function ImpactAndBlog() {
         <div className="container">
           <div className="home-media-grid">
             <div className="home-media-copy animate-slide-right">
-              <span className="section-label">Customer Testimonials</span>
-              <h2 className="section-h2" id="testimonials-heading">Customer Testimonials</h2>
+              <span className="section-label">{t.testimonial.label}</span>
+              <h2 className="section-h2" id="testimonials-heading">{t.testimonial.heading}</h2>
               <p className="section-sub">
-                Watch success stories from clients who trust our products, our implementation process, and our long-term support.
+                {t.testimonial.text}
               </p>
-              <Link href="/testimonials" className="btn-secondary">Watch Now →</Link>
+              <Link href="/testimonials" className="btn-secondary">{t.testimonial.cta}</Link>
             </div>
 
             <a className="home-video-preview animate-slide-left" href={testimonialVideo.youtubeUrl} target="_blank" rel="noreferrer">
@@ -94,7 +102,7 @@ export default function ImpactAndBlog() {
                 <span className="home-video-play">▶</span>
               </div>
               <div className="home-video-meta">
-                <span>Video Testimonial</span>
+                <span>{t.testimonial.preview}</span>
                 <strong>{testimonialVideo.title}</strong>
               </div>
             </a>
@@ -105,8 +113,8 @@ export default function ImpactAndBlog() {
       <section id="blog" className="blogs-grid-section" aria-labelledby="blog-heading">
         <div className="container">
           <div className="blogs-section-head animate-on-scroll text-center" style={{textAlign: 'center', marginBottom: '40px'}}>
-            <span className="blogs-section-label">Blogs</span>
-            <h2 className="blogs-section-h2" id="blog-heading">Recent updates and practical insights</h2>
+            <span className="blogs-section-label">{t.blog.label}</span>
+            <h2 className="blogs-section-h2" id="blog-heading">{t.blog.heading}</h2>
           </div>
 
           <div className="blog-posts-grid">
@@ -124,14 +132,14 @@ export default function ImpactAndBlog() {
                   <p className="blog-card-excerpt">{post.excerpt}</p>
                   <div className="blog-card-footer">
                     <span className="blog-read-time">🕒 {post.readTime}</span>
-                    <Link href={`/resources/blogs/${post.slug}`} className="blog-read-link">Read More →</Link>
+                    <Link href={`/resources/blogs/${post.slug}`} className="blog-read-link">{t.blog.readMore}</Link>
                   </div>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="home-blog-dots animate-on-scroll" aria-label="Blog pagination" style={{display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '40px'}}>
+          <div className="home-blog-dots animate-on-scroll" aria-label={t.blog.paginationLabel} style={{display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '40px'}}>
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
@@ -141,7 +149,7 @@ export default function ImpactAndBlog() {
                   backgroundColor: blogPage === index ? '#0057A8' : '#dbeafe'
                 }}
                 onClick={() => setBlogPage(index)}
-                aria-label={`Show blog slide ${index + 1}`}
+                aria-label={t.blog.slideLabel.replace('{n}', index + 1)}
               />
             ))}
           </div>

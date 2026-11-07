@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 
 *,
 *::before,
@@ -28,7 +28,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Poppins', 'Hind Siliguri', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--dark-text);
   background: #fff;
   overflow-x: hidden;
@@ -12450,4 +12450,60 @@ textarea {
   .svc-hosting-item {
     grid-template-columns: 1fr;
   }
+}
+
+/* === Language switch === */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  margin-left: 16px;
+  border-radius: 999px;
+  background: rgba(0, 87, 168, 0.08);
+  border: 1px solid rgba(0, 87, 168, 0.18);
+}
+
+.lang-switch-btn {
+  min-width: 38px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--primary);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-switch-btn.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.lang-switch-btn:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1024px) {
+  .lang-switch { margin-left: auto; margin-right: 8px; }
+}
+
+/* Language switch on the dark navbar */
+.lang-switch-nav {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.lang-switch-nav .lang-switch-btn {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.lang-switch-nav .lang-switch-btn.active {
+  background: #fff;
+  color: var(--primary);
 }

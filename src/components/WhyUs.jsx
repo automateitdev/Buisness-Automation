@@ -1,16 +1,15 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { HOME_BN } from '@/i18n/bn/home';
+import { HOME_EN } from './homeUi';
 
 export default function WhyUs() {
   const ref = useRef(null);
 
-  const strengths = [
-    { title: 'IRD Certified ERP', text: 'A trusted platform approach shaped around dependable compliance and business process clarity.' },
-    { title: 'One-Stop Shop', text: 'Products, services, implementation, and support are handled together for smoother delivery.' },
-    { title: 'Long-Term Support', text: 'We stay involved after deployment with issue handling, optimization, and guided follow-up.' },
-    { title: 'Cross-Sector Experience', text: 'Education, healthcare, finance, associations, and business teams use our systems every day.' },
-  ];
+  const t = useLocalized(HOME_EN, HOME_BN).whyUs;
+  const strengths = t.strengths;
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -31,10 +30,10 @@ export default function WhyUs() {
       <div className="container">
         <div className="whyus-layout-refined">
           <div className="whyus-intro-refined animate-on-scroll">
-            <span className="section-label">Why Choose Us</span>
-            <h2 className="section-h2" id="whyus-heading">A technology partner built around clarity, performance, and service</h2>
+            <span className="section-label">{t.label}</span>
+            <h2 className="section-h2" id="whyus-heading">{t.heading}</h2>
             <p className="section-sub whyus-sub-refined">
-              We combine product capability, implementation ownership, and long-term support so organizations can move forward with confidence.
+              {t.sub}
             </p>
           </div>
 

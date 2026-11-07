@@ -1,4 +1,5 @@
-import StaticInfoPage from '@/components/StaticInfoPage';
+import LocalizedStaticInfoPage from '@/components/LocalizedStaticInfoPage';
+import { PORTFOLIO_BN } from '@/i18n/bn/staticPages';
 
 export const metadata = {
   title: 'Portfolio — Automate IT Limited',
@@ -7,7 +8,8 @@ export const metadata = {
 
 export default function PortfolioPage() {
   return (
-    <StaticInfoPage
+    <LocalizedStaticInfoPage
+      bn={PORTFOLIO_BN}
       title="Portfolio"
       eyebrow="Company / Portfolio"
       summary="A snapshot of product lines, service delivery strengths, and implementation outcomes across the sectors we support."

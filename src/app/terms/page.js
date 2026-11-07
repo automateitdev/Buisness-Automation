@@ -1,4 +1,5 @@
 import LegalDocumentPage from '@/components/LegalDocumentPage';
+import { TERMS_BN } from '@/i18n/bn/legal';
 
 export const metadata = {
   title: 'Terms & Conditions — Automate IT Limited',
@@ -59,6 +60,7 @@ export default function TermsPage() {
       summary="Please read these terms carefully before downloading, using, or continuing to access the Dynamic School ERP application."
       effectiveLabel="Effective date: 2023-01-19"
       sections={sections}
+      bn={TERMS_BN}
       contacts={['Automate IT Limited', '09613-241234', 'info@automate.com.bd', 'automate.com.bd']}
     />
   );

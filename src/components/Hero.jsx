@@ -2,10 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useLang, useLocalized } from '@/i18n/LanguageProvider';
+import { MOCKUP_BN } from '@/i18n/bn/mockup';
+import { HERO_SLIDES_BN } from '@/i18n/bn/hero';
 
 const SLIDES = [
   {
-    step: '1/3',
+    step: '1/4',
     title: 'Academic ERP',
     sub: 'A complete academic platform for admissions, fees, attendance, exams, communication, and everyday institutional operations.',
     cta1: { label: 'Read More', href: '/products/academic-erp' },
@@ -16,7 +19,7 @@ const SLIDES = [
     chart: 'academic',
   },
   {
-    step: '2/3',
+    step: '2/4',
     title: 'Accounting Solution',
     sub: 'Bring ledgers, billing, reporting, reconciliation, and financial visibility into one reliable accounting workflow.',
     cta1: { label: 'Read More', href: '/products/accounting-solution' },
@@ -27,7 +30,7 @@ const SLIDES = [
     chart: 'accounting',
   },
   {
-    step: '3/3',
+    step: '3/4',
     title: 'HR & Payroll Management',
     sub: 'Manage employee records, attendance, leave, payroll, and approvals with a smoother HR operation from one dashboard.',
     cta1: { label: 'Read More', href: '/products/hr-and-payroll-management' },
@@ -37,10 +40,27 @@ const SLIDES = [
     color1: '#fbbf24', color2: '#f59e0b',
     chart: 'hr',
   },
+  {
+    step: '4/4',
+    title: 'Automate Software Academy',
+    sub: 'Learn practical software skills through hands-on, industry-focused training — built by the team that develops real ERP and business software.',
+    cta1: { label: 'Enquire Now', href: '/contact' },
+    cta2: { label: 'About Us', href: '/about' },
+    highlights: ['Hands-on, project-based learning', 'Taught by working software professionals', 'Career-focused skill development'],
+    accent: 'linear-gradient(90deg,#e879f9,#a855f7)',
+    color1: '#e879f9', color2: '#a855f7',
+    chart: 'academy',
+  },
 ];
+
+function useMock() {
+  const { lang } = useLang();
+  return (s) => (lang === 'bn' ? (MOCKUP_BN[s] ?? s) : s);
+}
 
 /* ── Inline chart mockups ── */
 function AccountingChart({ c1, c2 }) {
+  const m = useMock();
   return (
     <svg viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
       {/* Grid lines */}
@@ -58,7 +78,7 @@ function AccountingChart({ c1, c2 }) {
         <g key={label}>
           <rect x={x} y={160 - h} width={24} height={h} rx="4"
             fill={`url(#bg${label})`} opacity="0.9" />
-          <text x={x + 12} y="157" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.5)">{label}</text>
+          <text x={x + 12} y="157" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.5)">{m(label)}</text>
         </g>
       ))}
       {/* Gradient defs */}
@@ -78,12 +98,13 @@ function AccountingChart({ c1, c2 }) {
       <circle cx="210" cy="55" r="30" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="14"
         strokeDasharray="30 160" strokeDashoffset="90" />
       <text x="210" y="58" textAnchor="middle" fontSize="10" fill="white" fontWeight="bold">68%</text>
-      <text x="210" y="69" textAnchor="middle" fontSize="7" fill="rgba(255,255,255,0.6)">Revenue</text>
+      <text x="210" y="69" textAnchor="middle" fontSize="7" fill="rgba(255,255,255,0.6)">{m("Revenue")}</text>
     </svg>
   );
 }
 
 function HRChart({ c1, c2 }) {
+  const m = useMock();
   return (
     <svg viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
       <defs>
@@ -112,7 +133,7 @@ function HRChart({ c1, c2 }) {
       ))}
       {/* Labels */}
       {['Jan','Mar','May','Jul','Sep','Nov'].map((l,i)=>(
-        <text key={l} x={30 + i*42} y="157" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.5)">{l}</text>
+        <text key={l} x={30 + i*42} y="157" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.5)">{m(l)}</text>
       ))}
       {/* Mini stat boxes */}
       {[
@@ -122,7 +143,7 @@ function HRChart({ c1, c2 }) {
       ].map(({ x, label, val }) => (
         <g key={label}>
           <rect x={x} y="2" width="70" height="24" rx="6" fill="rgba(255,255,255,0.08)" />
-          <text x={x + 35} y="11" textAnchor="middle" fontSize="7" fill="rgba(255,255,255,0.5)">{label}</text>
+          <text x={x + 35} y="11" textAnchor="middle" fontSize="7" fill="rgba(255,255,255,0.5)">{m(label)}</text>
           <text x={x + 35} y="21" textAnchor="middle" fontSize="9" fill="white" fontWeight="bold">{val}</text>
         </g>
       ))}
@@ -131,6 +152,7 @@ function HRChart({ c1, c2 }) {
 }
 
 function AcademicChart({ c1, c2 }) {
+  const m = useMock();
   return (
     <svg viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto' }}>
       <defs>
@@ -146,7 +168,7 @@ function AcademicChart({ c1, c2 }) {
       <circle cx="75" cy="85" r="45" fill="none" stroke={c2} strokeWidth="18"
         strokeDasharray="80 203" strokeDashoffset="150" strokeLinecap="round" opacity="0.7" />
       <text x="75" y="81" textAnchor="middle" fontSize="18" fill="white" fontWeight="bold">92%</text>
-      <text x="75" y="95" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.6)">Pass Rate</text>
+      <text x="75" y="95" textAnchor="middle" fontSize="9" fill="rgba(255,255,255,0.6)">{m("Pass Rate")}</text>
 
       {/* Right stats */}
       {[
@@ -157,7 +179,7 @@ function AcademicChart({ c1, c2 }) {
       ].map(({ label, val, y }) => (
         <g key={label}>
           <rect x="145" y={y - 16} width="100" height="30" rx="8" fill="rgba(255,255,255,0.07)" />
-          <text x="155" y={y - 2} fontSize="8" fill="rgba(255,255,255,0.5)">{label}</text>
+          <text x="155" y={y - 2} fontSize="8" fill="rgba(255,255,255,0.5)">{m(label)}</text>
           <text x="155" y={y + 10} fontSize="11" fill="white" fontWeight="bold">{val}</text>
         </g>
       ))}
@@ -166,6 +188,7 @@ function AcademicChart({ c1, c2 }) {
 }
 
 function DashboardMockup({ slide }) {
+  const m = useMock();
   const { color1, color2, chart } = slide;
   return (
     <div style={{ position: 'relative', width: '100%', maxWidth: 480 }}>
@@ -204,7 +227,7 @@ function DashboardMockup({ slide }) {
               background: 'rgba(255,255,255,0.05)',
               padding: '2px 10px', borderRadius: 10,
             }}>
-              {slide.title} Dashboard
+              {slide.title} {m("Dashboard")}
             </div>
             <div style={{ display: 'flex', gap: 6 }}>
               {[color1, color2].map((c, i) => (
@@ -260,7 +283,7 @@ function DashboardMockup({ slide }) {
             <circle cx="45" cy="40" r="28" fill="none" stroke={color2} strokeWidth="12"
               strokeDasharray="50 126" strokeDashoffset="90" strokeLinecap="round" opacity="0.7" />
             <text x="45" y="37" textAnchor="middle" fontSize="11" fill="white" fontWeight="bold">76%</text>
-            <text x="45" y="48" textAnchor="middle" fontSize="6" fill="rgba(255,255,255,0.5)">Growth</text>
+            <text x="45" y="48" textAnchor="middle" fontSize="6" fill="rgba(255,255,255,0.5)">{m("Growth")}</text>
             {/* Mini bars */}
             {[18, 28, 14, 34, 22].map((h, i) => (
               <rect key={i} x={8 + i * 16} y={82 - h} width={10} height={h} rx="2"
@@ -290,8 +313,8 @@ function DashboardMockup({ slide }) {
           fontSize: 14,
         }}>📊</div>
         <div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', lineHeight: 1 }}>Live Report</div>
-          <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>Real-time</div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', lineHeight: 1 }}>{m("Live Report")}</div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', lineHeight: 1.4 }}>{m("Real-time")}</div>
         </div>
       </div>
 
@@ -307,20 +330,21 @@ function DashboardMockup({ slide }) {
         boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
       }}>
         <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#34d399', display: 'inline-block', animation: 'hero-pulse 1.5s infinite' }} />
-        System Online
+        {m("System Online")}
       </div>
     </div>
   );
 }
 
 export default function Hero() {
+  const slides = useLocalized(SLIDES, HERO_SLIDES_BN);
   const [active, setActive] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const dragState = useRef({ startX: 0, dragging: false });
 
   const goTo = useCallback((idx) => { setActive(idx); }, []);
-  const next = useCallback(() => goTo((active + 1) % SLIDES.length), [active, goTo]);
-  const back = useCallback(() => goTo((active - 1 + SLIDES.length) % SLIDES.length), [active, goTo]);
+  const next = useCallback(() => goTo((active + 1) % slides.length), [active, goTo, slides.length]);
+  const back = useCallback(() => goTo((active - 1 + slides.length) % slides.length), [active, goTo, slides.length]);
 
   useEffect(() => {
     const timer = setInterval(next, 6000);
@@ -342,7 +366,7 @@ export default function Hero() {
     if (delta > 0) back();
   }, [back, next]);
 
-  const slide = SLIDES[active];
+  const slide = slides[active];
 
   return (
     <>
@@ -389,7 +413,7 @@ export default function Hero() {
 
             {/* Slide dots */}
             <div style={{ display: 'flex', gap: 8, marginTop: 24 }}>
-              {SLIDES.map((_, i) => (
+              {slides.map((_, i) => (
                 <button
                   key={i} type="button"
                   onClick={(e) => { e.stopPropagation(); goTo(i); }}
@@ -411,7 +435,17 @@ export default function Hero() {
           {/* ── Right device mockup ── */}
           <div className="hero-blue-right" key={`right-${active}`}>
             <div className="hero-device-wrap" style={{ width: '100%', maxWidth: 460, padding: '40px 30px 50px' }}>
-              <DashboardMockup slide={slide} />
+              {slide.chart === 'academy' ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src="/academy-logo.webp"
+                  alt="Automate Software Academy"
+                  style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 12px 32px rgba(0,0,0,0.35))' }}
+                  draggable={false}
+                />
+              ) : (
+                <DashboardMockup slide={slide} />
+              )}
             </div>
           </div>
         </div>

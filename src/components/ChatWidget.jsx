@@ -2,6 +2,8 @@
 import Link from 'next/link';
 
 import { useState, useEffect, useRef } from 'react';
+import { useLocalized } from '../i18n/LanguageProvider';
+import { CHAT_BN } from '../i18n/bn/chat';
 
 const BOT_AVATAR = (
   <div style={{
@@ -16,11 +18,50 @@ const INITIAL_FORM = {
   fullName: '', phone: '+880', email: '', companyName: '', message: '',
 };
 
-const QUICK_REPLIES = ['Contact Office', 'Help Centre'];
-
-const FOLLOW_UP = "I noticed you haven't responded yet. Feel free to ask anything or fill the form below — we're happy to help! 😊";
+const CHAT_EN = {
+  greeting: "Hello! 👋 Welcome.\nWe're here to help. I'm your AI assistant. How can I assist you today?",
+  hint: 'You can also find answers in our Help Centre.',
+  followUp: "I noticed you haven't responded yet. Feel free to ask anything or fill the form below — we're happy to help! 😊",
+  quickContact: 'Contact Office',
+  quickHelp: 'Help Centre',
+  contactReply: '📞 Call us: 09613-241234\n✉️ Email: info@automate.com.bd\n🌐 Website: automate.com.bd\n\nOr fill out the Contact Form tab — we typically respond within a few minutes!',
+  helpReply: '📚 Our Help Centre has FAQs, guides, and tutorials. Click the link below to visit it now!',
+  helpLink: '🔗 Go to Help Centre →',
+  thanks: "✅ Thanks, {name}! We've received your message and will contact you soon.",
+  notif: '💬 New message',
+  dialogLabel: 'AI Chat Assistant',
+  assistantName: 'AI Assistant',
+  status: 'Online — Typically replies instantly',
+  closeChat: 'Close chat',
+  openChat: 'Open chat',
+  tabChat: '💬 Chat',
+  tabForm: '📋 Contact Form',
+  labels: {
+    fullName: 'Full Name',
+    phone: 'Phone',
+    email: 'Email',
+    company: 'Company Name',
+    message: 'Message / Address',
+    optional: '(optional)',
+  },
+  placeholders: {
+    fullName: 'e.g. Rahim Uddin',
+    phone: '01XXXXXXXXX',
+    email: 'you@example.com',
+    company: 'Your company',
+    message: 'Type your message or address...',
+  },
+  errName: 'Full name is required.',
+  errPhone: 'Phone number is required.',
+  success: "✅ Message sent! We'll contact you soon.",
+  sendMessage: '📤 Send Message',
+  sendEmail: '✉️ Send via Email',
+  poweredBy: 'Powered by',
+  helpCentre: 'Help Centre',
+};
 
 export default function ChatWidget() {
+  const t = useLocalized(CHAT_EN, CHAT_BN);
   const [open, setOpen] = useState(false);
   const [showNotif, setShowNotif] = useState(false);
   const [notifVisible, setNotifVisible] = useState(false);
@@ -46,12 +87,7 @@ export default function ChatWidget() {
       setOpen(true);
       setShowNotif(false);
       setNotifVisible(false);
-      setMessages([{
-        id: 1, from: 'bot',
-        text: "Hello! 👋 Welcome.\nWe're here to help. I'm your AI assistant. How can I assist you today?",
-        hint: "You can also find answers in our Help Centre.",
-        time: now(),
-      }]);
+      setMessages([{ id: 1, from: 'bot', kind: 'greeting', time: now() }]);
     }, 4000);
 
     return () => {
@@ -72,7 +108,7 @@ export default function ChatWidget() {
       followUpTimer.current = setTimeout(() => {
         setFollowUpShown(true);
         setMessages(prev => [...prev, {
-          id: Date.now(), from: 'bot', text: FOLLOW_UP, time: now(),
+          id: Date.now(), from: 'bot', kind: 'followUp', time: now(),
         }]);
       }, 12000);
     }
@@ -83,6 +119,19 @@ export default function ChatWidget() {
     return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
 
+  function msgText(msg) {
+    switch (msg.kind) {
+      case 'greeting': return t.greeting;
+      case 'followUp': return t.followUp;
+      case 'contactReply': return t.contactReply;
+      case 'helpReply': return t.helpReply;
+      case 'contact': return t.quickContact;
+      case 'help': return t.quickHelp;
+      case 'thanks': return t.thanks.replace('{name}', msg.name);
+      default: return msg.text;
+    }
+  }
+
   function handleOpen() {
     clearTimeout(openTimer.current);
     clearTimeout(notifTimer.current);
@@ -90,35 +139,28 @@ export default function ChatWidget() {
     setNotifVisible(false);
     setOpen(o => {
       if (!o && messages.length === 0) {
-        setMessages([{
-          id: 1, from: 'bot',
-          text: "Hello! 👋 Welcome.\nWe're here to help. I'm your AI assistant. How can I assist you today?",
-          hint: "You can also find answers in our Help Centre.",
-          time: now(),
-        }]);
+        setMessages([{ id: 1, from: 'bot', kind: 'greeting', time: now() }]);
       }
       return !o;
     });
   }
 
-  function handleQuickReply(label) {
+  function handleQuickReply(kind) {
     clearTimeout(followUpTimer.current);
     setFollowUpShown(true);
-    const userMsg = { id: Date.now(), from: 'user', text: label, time: now() };
+    const userMsg = { id: Date.now(), from: 'user', kind, time: now() };
     const botReply = {
       id: Date.now() + 1, from: 'bot', time: now(),
-      text: label === 'Contact Office'
-        ? '📞 Call us: 09613-241234\n✉️ Email: info@automate.com.bd\n🌐 Website: automate.com.bd\n\nOr fill out the Contact Form tab — we typically respond within a few minutes!'
-        : '📚 Our Help Centre has FAQs, guides, and tutorials. Click the link below to visit it now!',
-      helpLink: label === 'Help Centre',
+      kind: kind === 'contact' ? 'contactReply' : 'helpReply',
+      helpLink: kind === 'help',
     };
     setMessages(prev => [...prev, userMsg, botReply]);
   }
 
   function validate() {
     const e = {};
-    if (!form.fullName.trim()) e.fullName = 'Full name is required.';
-    if (!form.phone.trim() || form.phone === '+880') e.phone = 'Phone number is required.';
+    if (!form.fullName.trim()) e.fullName = 'errName';
+    if (!form.phone.trim() || form.phone === '+880') e.phone = 'errPhone';
     return e;
   }
 
@@ -135,7 +177,7 @@ export default function ChatWidget() {
     setSubmitted(true);
     setMessages(prev => [...prev, {
       id: Date.now(), from: 'bot', time: now(),
-      text: `✅ Thanks, ${form.fullName}! We've received your message and will contact you soon.`,
+      kind: 'thanks', name: form.fullName,
     }]);
     setView('chat');
     setForm(INITIAL_FORM);
@@ -319,32 +361,32 @@ export default function ChatWidget() {
         {showNotif && (
           <div className={`cw-notif${notifVisible ? ' visible' : ''}`}>
             <span className="cw-notif-dot" />
-            💬 New message
+            {t.notif}
           </div>
         )}
 
         {/* Chat panel */}
         {open && (
-          <div className="cw-panel" role="dialog" aria-label="AI Chat Assistant">
+          <div className="cw-panel" role="dialog" aria-label={t.dialogLabel}>
             {/* Header */}
             <div className="cw-header">
               <div className="cw-header-avatar">🤖</div>
               <div className="cw-header-info">
-                <p className="cw-header-name">AI Assistant</p>
+                <p className="cw-header-name">{t.assistantName}</p>
                 <span className="cw-header-status">
-                  <span className="cw-online-dot" /> Online — Typically replies instantly
+                  <span className="cw-online-dot" /> {t.status}
                 </span>
               </div>
-              <button className="cw-close" onClick={() => setOpen(false)} aria-label="Close chat">✕</button>
+              <button className="cw-close" onClick={() => setOpen(false)} aria-label={t.closeChat}>✕</button>
             </div>
 
             {/* Tabs */}
             <div className="cw-tabs">
               <button className={`cw-tab${view === 'chat' ? ' active' : ''}`} onClick={() => setView('chat')}>
-                💬 Chat
+                {t.tabChat}
               </button>
               <button className={`cw-tab${view === 'form' ? ' active' : ''}`} onClick={() => setView('form')}>
-                📋 Contact Form
+                {t.tabForm}
               </button>
             </div>
 
@@ -356,10 +398,10 @@ export default function ChatWidget() {
                     <div key={msg.id} className={`cw-msg ${msg.from}`}>
                       {msg.from === 'bot' && BOT_AVATAR}
                       <div>
-                        <div className="cw-bubble">{msg.text}</div>
-                        {msg.hint && <div className="cw-hint">📖 {msg.hint}</div>}
+                        <div className="cw-bubble">{msgText(msg)}</div>
+                        {msg.kind === 'greeting' && <div className="cw-hint">📖 {t.hint}</div>}
                   {msg.helpLink && (
-                    <Link href="/resources" className="cw-hint" style={{display:'inline-block',marginTop:6}}>🔗 Go to Help Centre →</Link>
+                    <Link href="/resources" className="cw-hint" style={{display:'inline-block',marginTop:6}}>{t.helpLink}</Link>
                   )}
                         <div className="cw-time">{msg.time}</div>
                       </div>
@@ -370,8 +412,8 @@ export default function ChatWidget() {
 
                 {/* Quick replies */}
                 <div className="cw-quick">
-                  {QUICK_REPLIES.map(q => (
-                    <button key={q} className="cw-qbtn" onClick={() => handleQuickReply(q)}>{q}</button>
+                  {[['contact', t.quickContact], ['help', t.quickHelp]].map(([k, label]) => (
+                    <button key={k} className="cw-qbtn" onClick={() => handleQuickReply(k)}>{label}</button>
                   ))}
                 </div>
               </>
@@ -381,68 +423,68 @@ export default function ChatWidget() {
             {view === 'form' && (
               <form className="cw-form" onSubmit={handleSubmit} noValidate>
                 <div className="cw-field">
-                  <label className="cw-label">Full Name <span className="cw-req">*</span></label>
+                  <label className="cw-label">{t.labels.fullName} <span className="cw-req">*</span></label>
                   <input
                     className={`cw-input${errors.fullName ? ' error' : ''}`}
                     name="fullName" value={form.fullName}
-                    onChange={handleChange} placeholder="e.g. Rahim Uddin"
+                    onChange={handleChange} placeholder={t.placeholders.fullName}
                   />
-                  {errors.fullName && <span className="cw-err">{errors.fullName}</span>}
+                  {errors.fullName && <span className="cw-err">{t[errors.fullName]}</span>}
                 </div>
 
                 <div className="cw-field">
-                  <label className="cw-label">Phone <span className="cw-req">*</span></label>
+                  <label className="cw-label">{t.labels.phone} <span className="cw-req">*</span></label>
                   <div className="cw-phone-row">
                     <input className="cw-phone-code cw-input" value="+880" readOnly style={{width:72}} />
                     <input
                       className={`cw-input${errors.phone ? ' error' : ''}`}
                       name="phone" value={form.phone}
-                      onChange={handleChange} placeholder="01XXXXXXXXX"
+                      onChange={handleChange} placeholder={t.placeholders.phone}
                       style={{flex:1}}
                     />
                   </div>
-                  {errors.phone && <span className="cw-err">{errors.phone}</span>}
+                  {errors.phone && <span className="cw-err">{t[errors.phone]}</span>}
                 </div>
 
                 <div className="cw-field">
-                  <label className="cw-label">Email <span style={{color:'#aaa',fontSize:11}}>(optional)</span></label>
+                  <label className="cw-label">{t.labels.email} <span style={{color:'#aaa',fontSize:11}}>{t.labels.optional}</span></label>
                   <input
                     className="cw-input" type="email"
                     name="email" value={form.email}
-                    onChange={handleChange} placeholder="you@example.com"
+                    onChange={handleChange} placeholder={t.placeholders.email}
                   />
                 </div>
 
                 <div className="cw-field">
-                  <label className="cw-label">Company Name <span style={{color:'#aaa',fontSize:11}}>(optional)</span></label>
+                  <label className="cw-label">{t.labels.company} <span style={{color:'#aaa',fontSize:11}}>{t.labels.optional}</span></label>
                   <input
                     className="cw-input"
                     name="companyName" value={form.companyName}
-                    onChange={handleChange} placeholder="Your company"
+                    onChange={handleChange} placeholder={t.placeholders.company}
                   />
                 </div>
 
                 <div className="cw-field">
-                  <label className="cw-label">Message / Address</label>
+                  <label className="cw-label">{t.labels.message}</label>
                   <textarea
                     className="cw-textarea"
                     name="message" value={form.message}
-                    onChange={handleChange} placeholder="Type your message or address..."
+                    onChange={handleChange} placeholder={t.placeholders.message}
                     rows={3}
                   />
                 </div>
 
-                {submitted && <div className="cw-success">✅ Message sent! We'll contact you soon.</div>}
+                {submitted && <div className="cw-success">{t.success}</div>}
 
-                <button type="submit" className="cw-send" id="cw-send-btn">📤 Send Message</button>
+                <button type="submit" className="cw-send" id="cw-send-btn">{t.sendMessage}</button>
                 <button type="button" className="cw-send-email" onClick={handleSubmit} id="cw-send-email-btn">
-                  ✉️ Send via Email
+                  {t.sendEmail}
                 </button>
               </form>
             )}
 
             <div className="cw-footer">
-              Powered by <span style={{fontWeight:600,color:'#1a73e8'}}>AI Assistant</span> &nbsp;·&nbsp; <Link href="/resources" style={{color:'#1a73e8',fontWeight:600,textDecoration:'none'}}>Help Centre</Link>
+              {t.poweredBy} <span style={{fontWeight:600,color:'#1a73e8'}}>{t.assistantName}</span> &nbsp;·&nbsp; <Link href="/resources" style={{color:'#1a73e8',fontWeight:600,textDecoration:'none'}}>{t.helpCentre}</Link>
             </div>
           </div>
         )}
@@ -451,7 +493,7 @@ export default function ChatWidget() {
         <button
           className="cw-btn"
           onClick={handleOpen}
-          aria-label={open ? 'Close chat' : 'Open chat'}
+          aria-label={open ? t.closeChat : t.openChat}
           aria-expanded={open}
           id="cw-launcher-btn"
         >

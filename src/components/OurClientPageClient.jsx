@@ -1,5 +1,8 @@
 'use client';
 import PageHero from './PageHero';
+import { CLIENTS_UI_EN } from './routeUi';
+import { CLIENTS_UI_BN, CLIENTS_BN } from '@/i18n/bn/routeUi';
+import { useLocalized } from '@/i18n/LanguageProvider';
 
 export const CLIENTS = [
   { name: 'Bangladesh Rastra Bank', abbr: 'NRB', color: '#0057A8' },
@@ -30,22 +33,29 @@ export const CLIENTS = [
 
 
 
+/** Clients list with Bangla names when the site language is Bangla (shared with the home strip). */
+export function useLocalizedClients() {
+  return useLocalized(CLIENTS, CLIENTS_BN);
+}
+
 export default function OurClientPageClient() {
+  const t = useLocalized(CLIENTS_UI_EN, CLIENTS_UI_BN);
+  const clients = useLocalizedClients();
   return (
     <>
       <PageHero
-        title="Our Clients"
-        subtitle="From government institutions to private enterprises, schools, hospitals, and industry giants — we are proud to serve Bangladesh's most trusted organizations."
+        title={t.pageTitle}
+        subtitle={t.pageSubtitle}
         theme="navy"
       />
 
       <section className="ocl-clients-section">
         <div className="container">
           <div className="ocl-section-head">
-            <h2 className="ocl-heading">Meet Our Clients</h2>
+            <h2 className="ocl-heading">{t.meetClients}</h2>
           </div>
           <div className="ocl-grid">
-            {CLIENTS.map((client) => (
+            {clients.map((client) => (
               <div key={client.name} className="ocl-card">
                 <div className="ocl-logo" style={{ background: client.color }}>
                   <span className="ocl-abbr">{client.abbr}</span>

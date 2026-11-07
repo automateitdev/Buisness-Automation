@@ -1,21 +1,26 @@
-import Link from 'next/link';
-import { ourCompanyData as d } from './ourCompanyData';
+'use client';
 
-function CompanyVisual() {
+import Link from 'next/link';
+import { ourCompanyData } from './ourCompanyData';
+import { ABOUT_UI_EN } from './aboutUi';
+import { OUR_COMPANY_BN, ABOUT_UI_BN } from '@/i18n/bn/about';
+import { useLocalized } from '@/i18n/LanguageProvider';
+
+function CompanyVisual({ labels }) {
   return (
     <div className="oc-visual" aria-hidden="true">
       <div className="oc-visual-bg" />
       <div className="oc-visual-card oc-vc-1">
         <span className="oc-vc-icon">🏢</span>
-        <span>Est. 2013</span>
+        <span>{labels[0]}</span>
       </div>
       <div className="oc-visual-card oc-vc-2">
         <span className="oc-vc-icon">📍</span>
-        <span>Dhaka, Bangladesh</span>
+        <span>{labels[1]}</span>
       </div>
       <div className="oc-visual-card oc-vc-3">
         <span className="oc-vc-icon">✅</span>
-        <span>ISO-aligned delivery</span>
+        <span>{labels[2]}</span>
       </div>
     </div>
   );
@@ -74,6 +79,8 @@ function IndustryChip({ name, icon, description }) {
 
 /* ─── Main component ─── */
 export default function OurCompany() {
+  const d = useLocalized(ourCompanyData, OUR_COMPANY_BN);
+  const t = useLocalized(ABOUT_UI_EN, ABOUT_UI_BN).company;
   const { hero, intro, pillars, capabilities, whyUs, industries, cta } = d;
 
   return (
@@ -96,7 +103,7 @@ export default function OurCompany() {
               ))}
             </div>
           </div>
-          <CompanyVisual />
+          <CompanyVisual labels={t.visual} />
         </div>
         <div className="oc-hero-wave" />
       </section>
@@ -106,7 +113,7 @@ export default function OurCompany() {
         <div className="container">
           <div className="oc-intro-grid">
             <div className="oc-intro-copy">
-              <span className="oc-section-label">Who We Are</span>
+              <span className="oc-section-label">{t.whoWeAre}</span>
               <h2 className="oc-section-h2">{intro.heading}</h2>
               {intro.paragraphs.map((p) => (
                 <p key={p.slice(0, 30)} className="oc-intro-p">{p}</p>
@@ -128,8 +135,8 @@ export default function OurCompany() {
       <section className="oc-section oc-pillars-section">
         <div className="container">
           <div className="oc-section-header">
-            <span className="oc-section-label">Our Foundation</span>
-            <h2 className="oc-section-h2">What Guides Every Engagement</h2>
+            <span className="oc-section-label">{t.foundation}</span>
+            <h2 className="oc-section-h2">{t.foundationTitle}</h2>
           </div>
           <div className="oc-pillars-grid">
             {pillars.map((p) => (
@@ -143,8 +150,8 @@ export default function OurCompany() {
       <section className="oc-section oc-why-section">
         <div className="container">
           <div className="oc-section-header oc-section-header-light">
-            <span className="oc-section-label-light">By the Numbers</span>
-            <h2 className="oc-section-h2-light">Proof in performance</h2>
+            <span className="oc-section-label-light">{t.byNumbers}</span>
+            <h2 className="oc-section-h2-light">{t.proof}</h2>
           </div>
           <div className="oc-why-grid">
             {whyUs.map((w) => (
@@ -158,8 +165,8 @@ export default function OurCompany() {
       <section className="oc-section oc-cap-section">
         <div className="container">
           <div className="oc-section-header">
-            <span className="oc-section-label">What We Do</span>
-            <h2 className="oc-section-h2">Full-Spectrum Technology Capabilities</h2>
+            <span className="oc-section-label">{t.whatWeDo}</span>
+            <h2 className="oc-section-h2">{t.capabilitiesTitle}</h2>
           </div>
           <div className="oc-cap-grid">
             {capabilities.map((c) => (
@@ -173,8 +180,8 @@ export default function OurCompany() {
       <section className="oc-section oc-industry-section">
         <div className="container">
           <div className="oc-section-header">
-            <span className="oc-section-label">Who We Serve</span>
-            <h2 className="oc-section-h2">Industries We Operate In</h2>
+            <span className="oc-section-label">{t.whoWeServe}</span>
+            <h2 className="oc-section-h2">{t.industriesTitle}</h2>
           </div>
           <div className="oc-industry-grid">
             {industries.map((ind) => (
@@ -192,8 +199,8 @@ export default function OurCompany() {
             <p className="oc-cta-text">{cta.text}</p>
           </div>
           <div className="oc-cta-actions">
-            <Link href="/contact" className="btn-primary">Get in Touch</Link>
-            <Link href="/about/our-team" className="btn-outline-blue">Meet the Team</Link>
+            <Link href="/contact" className="btn-primary">{t.getInTouch}</Link>
+            <Link href="/about/our-team" className="btn-outline-blue">{t.meetTeam}</Link>
           </div>
         </div>
       </section>

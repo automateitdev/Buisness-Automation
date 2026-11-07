@@ -1,0 +1,28 @@
+// Hardcoded UI strings used by the resources components (English source of truth).
+// Bangla: src/i18n/bn/resources.js → RESOURCES_UI_BN (same keys).
+export const RESOURCES_UI_EN = {
+  readArticle: 'Read Article',
+  seeMore: 'See More',
+  watchOnYoutube: 'Watch on YouTube',
+  clientTestimonial: 'Client Testimonial',
+  clientVideos: 'Client Videos',
+  hearFromClients: 'Hear from Our Clients',
+  clientReviews: 'Client Reviews',
+  coverage: 'Coverage',
+  openArticle: 'Open Article',
+  ourJourney: 'Our Journey',
+  companyMilestones: 'Company Milestones',
+  latestArticles: 'Latest Articles',
+  browseBlogs: 'Browse Our Recent Blogs',
+  partnershipBenefits: 'Partnership Benefits',
+  whyPartner: 'Why Partner With Us',
+  howItWorks: 'How It Works',
+  onboardingProcess: 'Partner Onboarding Process',
+  partnerTiers: 'Partner Tiers',
+  chooseLevel: 'Choose Your Level',
+  applyNow: 'Apply Now',
+  submitRequest: 'Submit Your Dealership Request',
+  mostPopular: 'Most Popular',
+  backToBlogs: 'Back to Blogs',
+  contactUs: 'Contact Us',
+};

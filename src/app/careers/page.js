@@ -1,4 +1,5 @@
-import StaticInfoPage from '@/components/StaticInfoPage';
+import LocalizedStaticInfoPage from '@/components/LocalizedStaticInfoPage';
+import { CAREERS_BN } from '@/i18n/bn/staticPages';
 
 export const metadata = {
   title: 'Careers — Automate IT Limited',
@@ -7,7 +8,8 @@ export const metadata = {
 
 export default function CareersPage() {
   return (
-    <StaticInfoPage
+    <LocalizedStaticInfoPage
+      bn={CAREERS_BN}
       title="Careers"
       eyebrow="Company / Careers"
       summary="Explore opportunities to build products, support clients, and grow with a delivery-focused software team."

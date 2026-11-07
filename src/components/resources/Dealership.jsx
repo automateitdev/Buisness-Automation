@@ -1,4 +1,9 @@
-import { dealershipData as d } from './resourcesData';
+'use client';
+
+import { dealershipData } from './resourcesData';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { RESOURCES_BN, RESOURCES_UI_BN } from '@/i18n/bn/resources';
+import { RESOURCES_UI_EN } from './resourcesUi';
 import PageHero from '../PageHero';
 
 function getYoutubeVideoId(url) {
@@ -58,10 +63,10 @@ function BenefitCard({ icon, title, description, index }) {
   );
 }
 
-function TierCard({ name, requirements, benefits, highlight }) {
+function TierCard({ name, requirements, benefits, highlight, popularLabel }) {
   return (
     <div className={`deal-tier-card${highlight ? ' deal-tier-highlighted' : ''}`}>
-      {highlight && <div className="deal-tier-popular">Most Popular</div>}
+      {highlight && <div className="deal-tier-popular">{popularLabel}</div>}
       <div className="deal-tier-name">{name}</div>
       <div className="deal-tier-req">{requirements}</div>
       <ul className="deal-tier-benefits">
@@ -87,6 +92,8 @@ function ProcessStep({ step, title, description, index }) {
 }
 
 export default function Dealership() {
+  const d = useLocalized(dealershipData, RESOURCES_BN.dealership);
+  const ui = useLocalized(RESOURCES_UI_EN, RESOURCES_UI_BN);
   const { hero, intro, heroVideo, form, benefits, tiers, process } = d;
   const videoId = getYoutubeVideoId(heroVideo.youtubeUrl);
   const thumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : '';
@@ -109,8 +116,8 @@ export default function Dealership() {
         <section className="deal-benefits-section">
           <div className="container">
             <div className="deal-section-head">
-              <div className="deal-section-label">Partnership Benefits</div>
-              <h2 className="deal-section-h2">Why Partner With Us</h2>
+              <div className="deal-section-label">{ui.partnershipBenefits}</div>
+              <h2 className="deal-section-h2">{ui.whyPartner}</h2>
             </div>
             <div className="deal-benefits-grid">
               {benefits.map((b, i) => (
@@ -126,8 +133,8 @@ export default function Dealership() {
         <section className="deal-process-section">
           <div className="container">
             <div className="deal-section-head">
-              <div className="deal-section-label">How It Works</div>
-              <h2 className="deal-section-h2">Partner Onboarding Process</h2>
+              <div className="deal-section-label">{ui.howItWorks}</div>
+              <h2 className="deal-section-h2">{ui.onboardingProcess}</h2>
             </div>
             <div className="deal-process-steps">
               {process.map((step, i) => (
@@ -143,12 +150,12 @@ export default function Dealership() {
         <section className="deal-tiers-section">
           <div className="container">
             <div className="deal-section-head">
-              <div className="deal-section-label">Partner Tiers</div>
-              <h2 className="deal-section-h2">Choose Your Level</h2>
+              <div className="deal-section-label">{ui.partnerTiers}</div>
+              <h2 className="deal-section-h2">{ui.chooseLevel}</h2>
             </div>
             <div className="deal-tiers-grid">
               {tiers.map((t) => (
-                <TierCard key={t.name} {...t} />
+                <TierCard key={t.name} {...t} popularLabel={ui.mostPopular} />
               ))}
             </div>
           </div>
@@ -159,8 +166,8 @@ export default function Dealership() {
       <section className="deal-form-section">
         <div className="container">
           <div className="deal-section-head">
-            <div className="deal-section-label">Apply Now</div>
-            <h2 className="deal-section-h2">Submit Your Dealership Request</h2>
+            <div className="deal-section-label">{ui.applyNow}</div>
+            <h2 className="deal-section-h2">{ui.submitRequest}</h2>
             <p className="deal-section-sub">{intro.paragraphs[0]}</p>
           </div>
           <DealershipForm form={form} />

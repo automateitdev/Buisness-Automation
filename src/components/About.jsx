@@ -2,10 +2,15 @@
 
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import { ourCompanyData } from '@/components/about/ourCompanyData';
+import { ourCompanyData as ourCompanyEn } from '@/components/about/ourCompanyData';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { ABOUT_HOME_BN, HOME_BN } from '@/i18n/bn/home';
+import { HOME_EN } from './homeUi';
 
 export default function About() {
   const sectionRef = useRef(null);
+  const ourCompanyData = useLocalized(ourCompanyEn, ABOUT_HOME_BN);
+  const t = useLocalized(HOME_EN, HOME_BN).about;
   const description = ourCompanyData.intro.paragraphs.slice(0, 2);
   const featureCards = ourCompanyData.capabilities.slice(0, 4);
 
@@ -31,7 +36,7 @@ export default function About() {
           <div className="about-visual animate-on-scroll" aria-hidden="true">
             <div className="about-home-visual">
               <div className="about-home-visual-card">
-                <span className="about-home-chip">About Us</span>
+                <span className="about-home-chip">{t.chip}</span>
                 <h3>{ourCompanyData.intro.heading}</h3>
                 <div className="about-home-badges">
                   {ourCompanyData.hero.badges.map((badge) => (
@@ -70,7 +75,7 @@ export default function About() {
               ))}
             </div>
             <div className="about-ctas animate-on-scroll">
-              <Link href="/aboutus/our-company" className="btn-secondary">Read More →</Link>
+              <Link href="/aboutus/our-company" className="btn-secondary">{t.readMore}</Link>
             </div>
           </div>
         </div>

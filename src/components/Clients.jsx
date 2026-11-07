@@ -2,10 +2,15 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { CLIENTS } from './OurClientPageClient';
+import { useLocalizedClients } from './OurClientPageClient';
+import { CLIENTS_UI_EN } from './routeUi';
+import { CLIENTS_UI_BN } from '@/i18n/bn/routeUi';
+import { useLocalized } from '@/i18n/LanguageProvider';
 
 export default function Clients() {
   const ref = useRef(null);
+  const t = useLocalized(CLIENTS_UI_EN, CLIENTS_UI_BN);
+  const clients = useLocalizedClients();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -26,10 +31,10 @@ export default function Clients() {
       <div className="container">
         <div className="clients-hero-refined animate-on-scroll">
           <div className="clients-copy-refined">
-            <span className="section-label">Our Clients</span>
-            <h2 className="section-h2" id="clients-heading">Meet our clients</h2>
+            <span className="section-label">{t.label}</span>
+            <h2 className="section-h2" id="clients-heading">{t.homeHeading}</h2>
             <p className="section-sub clients-sub-refined">
-              Client logos on the homepage are pulled from the same source used on the clients page, so both stay aligned.
+              {t.homeSub}
             </p>
           </div>
           <div className="clients-visual-refined" aria-hidden="true">
@@ -45,7 +50,7 @@ export default function Clients() {
         </div>
 
         <div className="clients-logo-area animate-on-scroll home-clients-grid">
-          {CLIENTS.slice(0, 12).map((client) => (
+          {clients.slice(0, 12).map((client) => (
             <div key={client.name} className="clients-logo-pill home-clients-logo-pill">
               <span className="home-clients-logo-mark" style={{ background: client.color }}>{client.abbr}</span>
               <span>{client.name}</span>
@@ -54,7 +59,7 @@ export default function Clients() {
         </div>
 
         <div className="animate-on-scroll home-clients-actions">
-          <Link href="/our-client" className="btn-secondary">View All Clients →</Link>
+          <Link href="/our-client" className="btn-secondary">{t.viewAll}</Link>
         </div>
       </div>
     </section>

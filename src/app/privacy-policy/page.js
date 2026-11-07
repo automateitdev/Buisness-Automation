@@ -1,4 +1,5 @@
 import LegalDocumentPage from '@/components/LegalDocumentPage';
+import { PRIVACY_BN } from '@/i18n/bn/legal';
 
 export const metadata = {
   title: 'Privacy Policy — Automate IT Limited',
@@ -116,6 +117,7 @@ export default function PrivacyPolicyPage() {
       title="Privacy Policy"
       summary="This policy explains how the Dynamic School ERP application collects, uses, stores, shares, and protects personal information."
       sections={sections}
+      bn={PRIVACY_BN}
       contacts={['Automate IT Limited', '09613-241234', 'info@automate.com.bd', 'automate.com.bd']}
     />
   );

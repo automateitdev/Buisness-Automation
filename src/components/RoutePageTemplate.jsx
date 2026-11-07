@@ -1,18 +1,32 @@
+'use client';
+
 import Link from 'next/link';
 import PageHero from './PageHero';
+import { ROUTE_UI_EN } from './routeUi';
+import { ROUTE_UI_BN } from '@/i18n/bn/routeUi';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { useLocalizedLinks } from '@/lib/localizedLinks';
 
 export default function RoutePageTemplate({
-  title,
-  summary,
-  introTitle,
-  introText,
-  highlights = [],
-  detailCards = [],
-  pillars = [],
-  ctaTitle,
-  ctaText,
-  relatedLinks = [],
+  bn,
+  relatedLinks: relatedLinksProp = [],
+  ...props
 }) {
+  const ui = useLocalized(ROUTE_UI_EN, ROUTE_UI_BN);
+  const content = useLocalized(props, bn);
+  const relatedLinks = useLocalizedLinks(relatedLinksProp);
+  const {
+    title,
+    summary,
+    introTitle,
+    introText = [],
+    highlights = [],
+    detailCards = [],
+    pillars = [],
+    ctaTitle,
+    ctaText,
+  } = content;
+
   return (
     <>
       <PageHero title={title} subtitle={summary} theme="blue" compact />
@@ -66,8 +80,8 @@ export default function RoutePageTemplate({
           {pillars.length > 0 && (
             <section className="route-pillars">
               <div className="section-header">
-                <span className="section-label">Key Focus</span>
-                <h2 className="section-h2">Built Around The Work That Matters</h2>
+                <span className="section-label">{ui.keyFocus}</span>
+                <h2 className="section-h2">{ui.builtAround}</h2>
               </div>
               <div className="route-pillar-grid">
                 {pillars.map((pillar) => (
@@ -82,28 +96,28 @@ export default function RoutePageTemplate({
 
           <section className="route-cta">
             <div>
-              <span className="section-label">Next Step</span>
+              <span className="section-label">{ui.nextStep}</span>
               <h2>{ctaTitle}</h2>
               <p>{ctaText}</p>
             </div>
             <div className="route-cta-actions">
-              <Link href="/contact" className="btn-primary">Contact Us</Link>
-              <Link href="/account" className="btn-outline-blue">Account</Link>
+              <Link href="/contact" className="btn-primary">{ui.contactUs}</Link>
+              <Link href="/account" className="btn-outline-blue">{ui.account}</Link>
             </div>
           </section>
 
           {relatedLinks.length > 0 && (
             <section className="route-related">
               <div className="section-header">
-                <span className="section-label">Explore More</span>
-                <h2 className="section-h2">Related Pages</h2>
+                <span className="section-label">{ui.exploreMore}</span>
+                <h2 className="section-h2">{ui.relatedPages}</h2>
               </div>
               <div className="route-related-grid">
                 {relatedLinks.map((item) => (
                   <Link key={item.href} href={item.href} className="route-related-card">
                     <h3>{item.label}</h3>
                     <p>{item.description}</p>
-                    <span>Open Page</span>
+                    <span>{ui.openPage}</span>
                   </Link>
                 ))}
               </div>

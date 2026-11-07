@@ -3,6 +3,8 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { NAV_ITEMS } from '@/data/siteContent';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { SERVICES_SECTION_BN } from '@/i18n/bn/home-products-services';
 
 const SERVICE_DETAILS = {
   '/services/software-development': {
@@ -32,7 +34,17 @@ const SERVICE_DETAILS = {
   },
 };
 
+const SERVICES_SECTION = {
+  label: 'Services',
+  heading: 'One team for planning, building, and supporting digital work',
+  sub: 'Our services support both custom software initiatives and successful rollout of platforms your team depends on.',
+  viewAll: 'View all services',
+  openPage: 'Open page →',
+  details: SERVICE_DETAILS,
+};
+
 export default function Services() {
+  const t = useLocalized(SERVICES_SECTION, SERVICES_SECTION_BN);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -56,17 +68,15 @@ export default function Services() {
       <div className="container">
         <div className="services-shell">
           <div className="services-intro animate-on-scroll">
-            <span className="section-label">Services</span>
-            <h2 className="section-h2" id="services-heading">One team for planning, building, and supporting digital work</h2>
-            <p className="section-sub services-intro-sub">
-              Our services support both custom software initiatives and successful rollout of platforms your team depends on.
-            </p>
-            <Link href="/services" className="btn-outline-blue">View all services</Link>
+            <span className="section-label">{t.label}</span>
+            <h2 className="section-h2" id="services-heading">{t.heading}</h2>
+            <p className="section-sub services-intro-sub">{t.sub}</p>
+            <Link href="/services" className="btn-outline-blue">{t.viewAll}</Link>
           </div>
 
           <div className="services-grid services-grid-refined">
             {serviceLinks.map((item, index) => {
-              const detail = SERVICE_DETAILS[item.href];
+              const detail = t.details[item.href];
               return (
                 <Link
                   key={item.href}
@@ -77,7 +87,7 @@ export default function Services() {
                   <div className="service-card-mark">{detail?.icon ?? 'SRV'}</div>
                   <h3 className="service-name">{detail?.title ?? item.label}</h3>
                   <p className="service-desc">{detail?.desc ?? item.description}</p>
-                  <span className="service-link">Open page →</span>
+                  <span className="service-link">{t.openPage}</span>
                 </Link>
               );
             })}

@@ -1,13 +1,25 @@
-import Link from 'next/link';
+'use client';
+
 import PageHero from './PageHero';
+import { useLocalized } from '../i18n/LanguageProvider';
+import { LEGAL_UI_BN } from '../i18n/bn/legal';
+
+const LEGAL_UI_EN = { techSupport: 'Technical Support' };
 
 export default function LegalDocumentPage({
-  title,
-  summary,
-  effectiveLabel,
-  sections = [],
-  contacts = [],
+  title: titleEn,
+  summary: summaryEn,
+  effectiveLabel: effectiveLabelEn,
+  sections: sectionsEn = [],
+  contacts: contactsEn = [],
+  bn,
 }) {
+  const doc = useLocalized(
+    { title: titleEn, summary: summaryEn, effectiveLabel: effectiveLabelEn, sections: sectionsEn, contacts: contactsEn },
+    bn || {},
+  );
+  const ui = useLocalized(LEGAL_UI_EN, LEGAL_UI_BN);
+  const { title, summary, effectiveLabel, sections, contacts } = doc;
   return (
     <div className="legal-page">
       <PageHero title={title} subtitle={summary} theme="blue" compact />
@@ -46,7 +58,7 @@ export default function LegalDocumentPage({
 
           {contacts.length > 0 && (
             <section className="legal-contact-card">
-              <h2 className="legal-heading">Technical Support</h2>
+              <h2 className="legal-heading">{ui.techSupport}</h2>
               {contacts.map((line) => (
                 <p key={line} className="legal-contact-line">{line}</p>
               ))}

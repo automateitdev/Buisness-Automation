@@ -4,6 +4,11 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { NAV_ITEMS } from '@/data/siteContent';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import LanguageSwitch from '@/i18n/LanguageSwitch';
+import { NAV_ITEMS_BN } from '@/i18n/bn/nav';
+import { UI_EN } from '@/i18n/ui';
+import { UI_BN } from '@/i18n/bn/ui';
 
 const LogoIcon = () => (
   // eslint-disable-next-line @next/next/no-img-element
@@ -18,6 +23,8 @@ function isActivePath(pathname, href, children) {
 
 export default function Navbar() {
   const pathname = usePathname();
+  const navItems = useLocalized(NAV_ITEMS, NAV_ITEMS_BN);
+  const ui = useLocalized(UI_EN, UI_BN);
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -56,18 +63,18 @@ export default function Navbar() {
 
   return (
     <>
-      <a href="#main" className="skip-link">Skip to main content</a>
+      <a href="#main" className="skip-link">{ui.skipLink}</a>
       <header className={navClass} id="navbar">
         <nav className="nav-inner" aria-label="Main navigation">
           <Link href="/" className="nav-logo" aria-label="Automate IT Limited home">
             <LogoIcon />
             <div className="nav-logo-text">
-              <span className="nav-logo-name">Automate IT Limited</span>
+              <span className="nav-logo-name">{ui.siteName}</span>
             </div>
           </Link>
 
           <ul className="nav-links" role="menubar">
-            {NAV_ITEMS.map((item) => {
+            {navItems.map((item) => {
               const active = isActivePath(pathname, item.href, item.children);
 
               if (item.children) {
@@ -138,6 +145,7 @@ export default function Navbar() {
               );
             })}
           </ul>
+          <LanguageSwitch className="lang-switch-nav" />
           <button className="hamburger" onClick={() => setMobileOpen((value) => !value)} aria-label="Toggle menu" aria-expanded={mobileOpen}>
             <span className="bar" style={mobileOpen ? { transform: 'rotate(45deg) translate(5px,5px)' } : {}}></span>
             <span className="bar" style={mobileOpen ? { opacity: 0 } : {}}></span>
@@ -148,7 +156,7 @@ export default function Navbar() {
 
       <div className={menuClass} id="mobile-menu">
         <div className="mobile-menu-inner">
-          {NAV_ITEMS.map((item) => {
+          {navItems.map((item) => {
             if (!item.children) {
               return (
                 <div key={item.href} className="mobile-nav-item">

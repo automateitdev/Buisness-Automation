@@ -2,19 +2,21 @@
 
 import Link from 'next/link';
 import { NAV_ITEMS } from '@/data/siteContent';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { NAV_ITEMS_BN } from '@/i18n/bn/nav';
+import { UI_EN } from '@/i18n/ui';
+import { UI_BN } from '@/i18n/bn/ui';
 
-const productLinks = NAV_ITEMS.find((item) => item.href === '/products')?.children ?? [];
-const serviceLinks = NAV_ITEMS.find((item) => item.href === '/services')?.children ?? [];
-const otherLinks = [
-  { label: 'Contact Us', href: '/contact' },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms & Conditions', href: '/terms' },
-  { label: 'Delete Account', href: '/delete-account' },
-];
+const OTHER_HREFS = ['/contact', '/careers', '/portfolio', '/privacy-policy', '/terms', '/delete-account'];
 
 export default function Footer() {
+  const navItems = useLocalized(NAV_ITEMS, NAV_ITEMS_BN);
+  const ui = useLocalized(UI_EN, UI_BN);
+  const f = ui.footer;
+  const productLinks = navItems.find((item) => item.href === '/products')?.children ?? [];
+  const serviceLinks = navItems.find((item) => item.href === '/services')?.children ?? [];
+  const otherLinks = OTHER_HREFS.map((href, i) => ({ href, label: f.otherLinks[i] }));
+
   return (
     <footer id="footer" className="dn-footer" role="contentinfo">
       <div className="dn-footer-top">
@@ -24,7 +26,7 @@ export default function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logo.png" width="40" height="40" alt="" aria-hidden="true" />
 
-              <span>Automate IT Limited</span>
+              <span>{ui.siteName}</span>
             </div>
             <div className="dn-footer-social">
               <a href="#" aria-label="Facebook" className="dn-social-btn">f</a>
@@ -34,7 +36,7 @@ export default function Footer() {
           </div>
 
           <div className="dn-footer-col">
-            <h4 className="dn-footer-col-title">Our Products</h4>
+            <h4 className="dn-footer-col-title">{f.productsTitle}</h4>
             <ul>
               {productLinks.map((item) => (
                 <li key={item.href}>
@@ -45,7 +47,7 @@ export default function Footer() {
           </div>
 
           <div className="dn-footer-col">
-            <h4 className="dn-footer-col-title">Our Services</h4>
+            <h4 className="dn-footer-col-title">{f.servicesTitle}</h4>
             <ul>
               {serviceLinks.map((item) => (
                 <li key={item.href}>
@@ -56,7 +58,7 @@ export default function Footer() {
           </div>
 
           <div className="dn-footer-col">
-            <h4 className="dn-footer-col-title">Other Links</h4>
+            <h4 className="dn-footer-col-title">{f.otherTitle}</h4>
             <ul>
               {otherLinks.map((item) => (
                 <li key={item.href}>
@@ -67,15 +69,15 @@ export default function Footer() {
           </div>
 
           <div className="dn-footer-col">
-            <h4 className="dn-footer-col-title">Contact Us</h4>
+            <h4 className="dn-footer-col-title">{f.contactTitle}</h4>
             <ul className="dn-footer-contact">
               <li>
                 <span className="dn-fc-icon">📍</span>
-                <span>House- 34/A, Road- 13/2, Block- K,<br />South Banasree, Dhaka-1219</span>
+                <span>{f.address[0]}<br />{f.address[1]}</span>
               </li>
               <li>
                 <span className="dn-fc-icon">📞</span>
-                <span>09613-241234</span>
+                <span>{f.phone}</span>
               </li>
               <li>
                 <span className="dn-fc-icon">✉</span>
@@ -87,7 +89,7 @@ export default function Footer() {
               </li>
               <li>
                 <span className="dn-fc-icon">🕐</span>
-                <span>Sat - Thu: 9:00 AM - 6:00 PM</span>
+                <span>{f.hours}</span>
               </li>
             </ul>
           </div>
@@ -96,8 +98,8 @@ export default function Footer() {
 
       <div className="dn-footer-bottom">
         <div className="container dn-footer-bottom-inner">
-          <p>© 2026 Automate IT Limited. All Rights Reserved.</p>
-          <p>IRD Certified ERP Provider | Bangladesh&apos;s Trusted Technology Partner</p>
+          <p>{f.copyright}</p>
+          <p>{f.tagline}</p>
         </div>
       </div>
     </footer>

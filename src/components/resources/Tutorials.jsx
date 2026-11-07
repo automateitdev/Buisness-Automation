@@ -2,7 +2,10 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { tutorialsData as d } from './resourcesData';
+import { tutorialsData } from './resourcesData';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { RESOURCES_BN, RESOURCES_UI_BN } from '@/i18n/bn/resources';
+import { RESOURCES_UI_EN } from './resourcesUi';
 import PageHero from '../PageHero';
 
 const INITIAL_VIDEO_COUNT = 6;
@@ -22,10 +25,10 @@ const CATEGORY_COLORS = {
   Dealership: { from: '#0f766e', to: '#2dd4bf' },
 };
 
-function TutorialVideoCard({ title, category, duration, youtubeUrl, index }) {
+function TutorialVideoCard({ title, category, colorKey, duration, youtubeUrl, index, watchLabel }) {
   const videoId = getYoutubeVideoId(youtubeUrl);
   const thumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : '';
-  const cat = CATEGORY_COLORS[category] || { from: '#0057A8', to: '#0096D6' };
+  const cat = CATEGORY_COLORS[colorKey] || { from: '#0057A8', to: '#0096D6' };
 
   return (
     <a
@@ -68,7 +71,7 @@ function TutorialVideoCard({ title, category, duration, youtubeUrl, index }) {
           </span>
           <span className="tut-meta-item tut-yt-badge">
             <svg width="13" height="10" viewBox="0 0 20 14" fill="currentColor"><path d="M19.582 2.186A2.506 2.506 0 0017.818.413C16.254 0 10 0 10 0S3.746 0 2.182.413A2.506 2.506 0 00.418 2.186C0 3.76 0 7 0 7s0 3.24.418 4.814a2.506 2.506 0 001.764 1.773C3.746 14 10 14 10 14s6.254 0 7.818-.413a2.506 2.506 0 001.764-1.773C20 10.24 20 7 20 7s0-3.24-.418-4.814zM8 10V4l5.2 3L8 10z" /></svg>
-            Watch on YouTube
+            {watchLabel}
           </span>
         </div>
       </div>
@@ -77,6 +80,8 @@ function TutorialVideoCard({ title, category, duration, youtubeUrl, index }) {
 }
 
 export default function Tutorials() {
+  const d = useLocalized(tutorialsData, RESOURCES_BN.tutorials);
+  const ui = useLocalized(RESOURCES_UI_EN, RESOURCES_UI_BN);
   const { hero, videos } = d;
   const [showAll, setShowAll] = useState(false);
   const visibleVideos = showAll ? videos : videos.slice(0, INITIAL_VIDEO_COUNT);
@@ -90,7 +95,7 @@ export default function Tutorials() {
         <div className="container">
           <div className="resource-clean-grid">
             {visibleVideos.map((video, index) => (
-              <TutorialVideoCard key={video.title} {...video} index={index} />
+              <TutorialVideoCard key={video.youtubeUrl + index} {...video} colorKey={tutorialsData.videos[index].category} watchLabel={ui.watchOnYoutube} index={index} />
             ))}
           </div>
           {hasMore && (
@@ -101,7 +106,7 @@ export default function Tutorials() {
                 onClick={() => setShowAll(true)}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12l7 7 7-7" /></svg>
-                See More
+                {ui.seeMore}
               </button>
             </div>
           )}

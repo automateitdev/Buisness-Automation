@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import PageHero from '../PageHero';
 import { ABOUT_DETAIL_PAGES } from '@/data/siteContent';
+import { ABOUT_DETAIL_PAGES_BN } from '@/i18n/bn/siteContent';
+import { ABOUT_UI_EN } from './aboutUi';
+import { ABOUT_UI_BN } from '@/i18n/bn/about';
+import { useLocalized } from '@/i18n/LanguageProvider';
 
 function ProfileAvatar({ member }) {
   const initials = member.name
@@ -17,7 +21,8 @@ function ProfileAvatar({ member }) {
 }
 
 export default function OurTeam() {
-  const teamPage = ABOUT_DETAIL_PAGES['our-team'];
+  const teamPage = useLocalized(ABOUT_DETAIL_PAGES['our-team'], ABOUT_DETAIL_PAGES_BN['our-team']);
+  const t = useLocalized(ABOUT_UI_EN, ABOUT_UI_BN).ourTeam;
   const [selectedMemberId, setSelectedMemberId] = useState(teamPage.teamMembers?.[0]?.id ?? null);
   const [expandedMemberId, setExpandedMemberId] = useState(null);
   const primaryMember = teamPage.teamMembers?.find((member) => member.id === selectedMemberId) ?? teamPage.teamMembers?.[0] ?? null;
@@ -36,8 +41,8 @@ export default function OurTeam() {
   return (
     <div className="ot-page">
       <PageHero
-        title="Our Team"
-        subtitle="Designers, developers, implementation specialists, and support professionals working together to deliver reliable technology and service."
+        title={t.heroTitle}
+        subtitle={t.heroSubtitle}
         theme="navy"
         compact
       />
@@ -51,7 +56,7 @@ export default function OurTeam() {
             </div>
 
             <div className="about-team-layout">
-              <div className="about-profile-grid" role="tablist" aria-label="Leadership team">
+              <div className="about-profile-grid" role="tablist" aria-label={t.leadershipAria}>
                 {teamPage.teamMembers.map((member) => (
                   <button
                     key={member.id}
@@ -82,7 +87,7 @@ export default function OurTeam() {
                     <p>{primaryMember.position}</p>
                   </div>
                 </div>
-                <blockquote className="about-speech-quote">"{visibleSpeech}"</blockquote>
+                <blockquote className="about-speech-quote">{`"${visibleSpeech}"`}</blockquote>
                 {primaryMember.summary && <p className="about-speech-summary">{primaryMember.summary}</p>}
                 {primaryMember.fullSpeech && primaryMember.fullSpeech !== primaryMember.speech && (
                   <button
@@ -90,7 +95,7 @@ export default function OurTeam() {
                     className="about-read-more-button"
                     onClick={() => setExpandedMemberId(isExpanded ? null : primaryMember.id)}
                   >
-                    {isExpanded ? 'View Less' : 'View More'}
+                    {isExpanded ? t.viewLess : t.viewMore}
                   </button>
                 )}
               </article>

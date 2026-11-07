@@ -2,7 +2,10 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { testimonialsData as d } from './resourcesData';
+import { testimonialsData } from './resourcesData';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { RESOURCES_BN, RESOURCES_UI_BN } from '@/i18n/bn/resources';
+import { RESOURCES_UI_EN } from './resourcesUi';
 import PageHero from '../PageHero';
 
 const INITIAL_TESTIMONIAL_COUNT = 4;
@@ -31,7 +34,7 @@ function StarRating({ rating }) {
   );
 }
 
-function VideoTestimonialCard({ title, client, youtubeUrl, index }) {
+function VideoTestimonialCard({ title, client, youtubeUrl, index, ui }) {
   const videoId = getYoutubeVideoId(youtubeUrl);
   const thumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : '';
 
@@ -64,11 +67,11 @@ function VideoTestimonialCard({ title, client, youtubeUrl, index }) {
         </div>
       </div>
       <div className="resource-video-copy">
-        <span className="resource-video-tag">Client Testimonial</span>
+        <span className="resource-video-tag">{ui.clientTestimonial}</span>
         <h3>{title}</h3>
         <p className="testi-yt-label">
           <svg width="14" height="10" viewBox="0 0 20 14" fill="#E8431A"><path d="M19.582 2.186A2.506 2.506 0 0017.818.413C16.254 0 10 0 10 0S3.746 0 2.182.413A2.506 2.506 0 00.418 2.186C0 3.76 0 7 0 7s0 3.24.418 4.814a2.506 2.506 0 001.764 1.773C3.746 14 10 14 10 14s6.254 0 7.818-.413a2.506 2.506 0 001.764-1.773C20 10.24 20 7 20 7s0-3.24-.418-4.814zM8 10V4l5.2 3L8 10z"/></svg>
-          Watch on YouTube
+          {ui.watchOnYoutube}
         </p>
       </div>
     </a>
@@ -85,7 +88,7 @@ function TextTestimonialCard({ name, role, organization, rating, text, product, 
         <StarRating rating={rating} />
         <span className="testi-product-tag">{product}</span>
       </div>
-      <blockquote className="testi-quote">"{text}"</blockquote>
+      <blockquote className="testi-quote">{`"${text}"`}</blockquote>
       <div className="testi-author">
         <div className="testi-author-avatar">
           {name.split(' ').slice(0, 2).map(w => w[0]).join('')}
@@ -100,6 +103,8 @@ function TextTestimonialCard({ name, role, organization, rating, text, product, 
 }
 
 export default function Testimonials() {
+  const d = useLocalized(testimonialsData, RESOURCES_BN.testimonials);
+  const ui = useLocalized(RESOURCES_UI_EN, RESOURCES_UI_BN);
   const { hero, intro, videos, testimonials } = d;
   const [showAll, setShowAll] = useState(false);
   const visibleTestimonials = showAll ? testimonials : testimonials.slice(0, INITIAL_TESTIMONIAL_COUNT);
@@ -115,12 +120,12 @@ export default function Testimonials() {
         <section className="testi-videos-section">
           <div className="container">
             <div className="testi-section-head">
-              <div className="testi-section-label">Client Videos</div>
-              <h2 className="testi-section-h2">Hear from Our Clients</h2>
+              <div className="testi-section-label">{ui.clientVideos}</div>
+              <h2 className="testi-section-h2">{ui.hearFromClients}</h2>
             </div>
             <div className="resource-clean-grid resource-video-grid">
               {videos.map((video, index) => (
-                <VideoTestimonialCard key={video.title} {...video} index={index} />
+                <VideoTestimonialCard key={video.youtubeUrl + index} {...video} ui={ui} index={index} />
               ))}
             </div>
           </div>
@@ -131,12 +136,12 @@ export default function Testimonials() {
       <section className="testi-written-section">
         <div className="container">
           <div className="testi-section-head">
-            <div className="testi-section-label">Client Reviews</div>
+            <div className="testi-section-label">{ui.clientReviews}</div>
             <h2 className="testi-section-h2">{intro.heading}</h2>
           </div>
           <div className="testi-text-grid">
             {visibleTestimonials.map((t, index) => (
-              <TextTestimonialCard key={t.name} {...t} index={index} />
+              <TextTestimonialCard key={testimonialsData.testimonials[index].name} {...t} index={index} />
             ))}
           </div>
           {hasMore && (
@@ -147,7 +152,7 @@ export default function Testimonials() {
                 onClick={() => setShowAll(true)}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-                See More
+                {ui.seeMore}
               </button>
             </div>
           )}

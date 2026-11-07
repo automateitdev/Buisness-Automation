@@ -6,6 +6,7 @@ import MediaCoverage from '@/components/resources/MediaCoverage';
 import Testimonials from '@/components/resources/Testimonials';
 import Tutorials from '@/components/resources/Tutorials';
 import RoutePageTemplate from '@/components/RoutePageTemplate';
+import { RESOURCE_SUBPAGES_BN } from '@/i18n/bn/siteContent';
 import { getRelatedLinks, getResourcePage, resourceSlugs } from '@/lib/routeData';
 
 const componentMap = {
@@ -36,6 +37,7 @@ export default async function ResourceSubpage({ params }) {
   return (
     <RoutePageTemplate
       {...page}
+      bn={RESOURCE_SUBPAGES_BN[slug]}
       relatedLinks={getRelatedLinks('/resources', slug)}
       badgeItems={page.highlights}
     />

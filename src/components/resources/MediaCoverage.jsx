@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { mediaCoverageData as d } from './resourcesData';
+import { mediaCoverageData } from './resourcesData';
+import { useLocalized } from '@/i18n/LanguageProvider';
+import { RESOURCES_BN, RESOURCES_UI_BN } from '@/i18n/bn/resources';
+import { RESOURCES_UI_EN } from './resourcesUi';
 import PageHero from '../PageHero';
 
 const INITIAL_COUNT = 4;
@@ -14,8 +17,8 @@ const TYPE_STYLES = {
   'Press Release':   { bg: '#fff1f2', color: '#be123c', icon: '📢' },
 };
 
-function CoverageCard({ outlet, type, title, date, excerpt, link, index }) {
-  const ts = TYPE_STYLES[type] || { bg: '#f0f6ff', color: '#0057A8', icon: '📄' };
+function CoverageCard({ outlet, type, typeKey, title, date, excerpt, link, index, openLabel }) {
+  const ts = TYPE_STYLES[typeKey] || { bg: '#f0f6ff', color: '#0057A8', icon: '📄' };
   return (
     <article className="media-card blog-card-animated" style={{ animationDelay: `${index * 0.08}s` }}>
       <div className="media-card-accent-bar" />
@@ -37,7 +40,7 @@ function CoverageCard({ outlet, type, title, date, excerpt, link, index }) {
             {date}
           </span>
           <a href={link} target="_blank" rel="noreferrer" className="media-read-more">
-            Open Article
+            {openLabel}
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
@@ -63,6 +66,8 @@ function MilestoneTimeline({ milestones }) {
 }
 
 export default function MediaCoverage() {
+  const d = useLocalized(mediaCoverageData, RESOURCES_BN.mediaCoverage);
+  const ui = useLocalized(RESOURCES_UI_EN, RESOURCES_UI_BN);
   const { hero, featured, milestones } = d;
   const [showAll, setShowAll] = useState(false);
   const visibleItems = showAll ? featured : featured.slice(0, INITIAL_COUNT);
@@ -78,11 +83,11 @@ export default function MediaCoverage() {
       <section className="resource-clean-section">
         <div className="container">
           <div className="media-section-head">
-            <h2 className="media-section-h2">Coverage</h2>
+            <h2 className="media-section-h2">{ui.coverage}</h2>
           </div>
           <div className="resource-clean-grid media-cards-grid">
             {visibleItems.map((item, index) => (
-              <CoverageCard key={item.title} {...item} index={index} />
+              <CoverageCard key={mediaCoverageData.featured[index].link} {...item} typeKey={mediaCoverageData.featured[index].type} openLabel={ui.openArticle} index={index} />
             ))}
           </div>
           {hasMore && (
@@ -93,7 +98,7 @@ export default function MediaCoverage() {
                 onClick={() => setShowAll(true)}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-                See More
+                {ui.seeMore}
               </button>
             </div>
           )}
@@ -105,8 +110,8 @@ export default function MediaCoverage() {
         <section className="media-milestones-section">
           <div className="container">
             <div className="media-section-head">
-              <div className="media-section-label">Our Journey</div>
-              <h2 className="media-section-h2">Company Milestones</h2>
+              <div className="media-section-label">{ui.ourJourney}</div>
+              <h2 className="media-section-h2">{ui.companyMilestones}</h2>
             </div>
             <MilestoneTimeline milestones={milestones} />
           </div>
