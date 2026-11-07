@@ -3,7 +3,7 @@ import { PRIVACY_BN } from '@/i18n/bn/legal';
 
 export const metadata = {
   title: 'Privacy Policy — Automate IT Limited',
-  description: 'Read the Privacy Policy for the Dynamic School ERP application.',
+  description: 'Read the Privacy Policy for the Academy IMS application.',
 };
 
 const sections = [
@@ -21,9 +21,9 @@ const sections = [
     items: [
       'Account means a unique account created for You to access our Service or parts of our Service.',
       'Affiliate means an entity that controls, is controlled by or is under common control with a party, where control means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.',
-      'Application refers to Dynamic School Erp, the software program provided by the Company.',
-      'Company refers to Dynamic Technosoft Pvt Ltd, B & S Complex, Shankhamul Marga, Kathmandu.',
-      'Country refers to Nepal.',
+      'Application refers to Academy IMS, the software program provided by the Company.',
+      'Company refers to Automate IT Limited, Dhaka, Bangladesh.',
+      'Country refers to Bangladesh.',
       'Device means any device that can access the Service such as a computer, a cellphone or a digital tablet.',
       'Personal Data is any information that relates to an identified or identifiable individual.',
       'Service refers to the Application.',
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalDocumentPage
       title="Privacy Policy"
-      summary="This policy explains how the Dynamic School ERP application collects, uses, stores, shares, and protects personal information."
+      summary="This policy explains how the Academy IMS application collects, uses, stores, shares, and protects personal information."
       sections={sections}
       bn={PRIVACY_BN}
       contacts={['Automate IT Limited', '09613-241234', 'info@automate.com.bd', 'automate.com.bd']}

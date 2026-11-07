@@ -48,13 +48,13 @@ export const ourCompanyData = {
 
   whyUs: [
     {
-      stat: '10+',
-      label: 'Years',
-      description: 'Over a decade of software delivery and client partnership.',
+      stat: '2022',
+      label: 'Serving Since',
+      description: 'Building and supporting systems for Bangladeshi institutions.',
     },
     {
-      stat: '500+',
-      label: 'Clients',
+      stat: '550+',
+      label: 'Institutions',
       description: 'Organizations across Bangladesh trust our systems for daily operations.',
     },
     {
