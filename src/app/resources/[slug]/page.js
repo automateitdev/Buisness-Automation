@@ -4,13 +4,11 @@ import Blogs from '@/components/resources/Blogs';
 import Dealership from '@/components/resources/Dealership';
 import MediaCoverage from '@/components/resources/MediaCoverage';
 import Testimonials from '@/components/resources/Testimonials';
-import Tutorials from '@/components/resources/Tutorials';
 import RoutePageTemplate from '@/components/RoutePageTemplate';
 import { RESOURCE_SUBPAGES_BN } from '@/i18n/bn/siteContent';
 import { getRelatedLinks, getResourcePage, resourceSlugs } from '@/lib/routeData';
 
 const componentMap = {
-  tutorials: Tutorials,
   blogs: Blogs,
   testimonials: Testimonials,
   'media-coverage': MediaCoverage,

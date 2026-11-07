@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { blogsData as blogsEn, testimonialsData as testimonialsEn, tutorialsData as tutorialsEn } from '@/components/resources/resourcesData';
+import { blogsData as blogsEn, testimonialsData as testimonialsEn } from '@/components/resources/resourcesData';
 import { useLocalized } from '@/i18n/LanguageProvider';
 import { RESOURCES_BN } from '@/i18n/bn/resources';
 import { HOME_BN } from '@/i18n/bn/home';
@@ -18,12 +18,10 @@ export default function ImpactAndBlog() {
   const ref = useRef(null);
   const blogsData = useLocalized(blogsEn, RESOURCES_BN.blogs);
   const testimonialsData = useLocalized(testimonialsEn, RESOURCES_BN.testimonials);
-  const tutorialsData = useLocalized(tutorialsEn, RESOURCES_BN.tutorials);
   const t = useLocalized(HOME_EN, HOME_BN).impact;
   const [blogPage, setBlogPage] = useState(0);
   const postsPerPage = 3;
   const totalPages = Math.ceil(blogsData.featuredPosts.length / postsPerPage);
-  const tutorialVideo = tutorialsData.videos[0];
   const testimonialVideo = testimonialsData.videos[0];
   const visiblePosts = blogsData.featuredPosts.slice(
     blogPage * postsPerPage,
@@ -46,38 +44,6 @@ export default function ImpactAndBlog() {
 
   return (
     <div ref={ref}>
-      <section id="tutorial-center" className="impact-section impact-section-refined home-media-section" aria-labelledby="tutorial-center-heading">
-        <div className="container">
-          <div className="home-media-grid">
-            <div className="home-media-copy animate-slide-left">
-              <span className="section-label">{t.tutorial.label}</span>
-              <h2 className="section-h2" id="tutorial-center-heading">{t.tutorial.heading}</h2>
-              <p className="section-sub">
-                {t.tutorial.text}
-              </p>
-              <Link href="/tutorial" className="btn-secondary">{t.tutorial.cta}</Link>
-            </div>
-
-            <a className="home-video-preview animate-slide-right" href={tutorialVideo.youtubeUrl} target="_blank" rel="noreferrer">
-              <div className="home-video-thumb">
-                <Image
-                  src={`https://img.youtube.com/vi/${getYoutubeVideoId(tutorialVideo.youtubeUrl)}/hqdefault.jpg`}
-                  alt={tutorialVideo.title}
-                  width={640}
-                  height={360}
-                  unoptimized
-                />
-                <span className="home-video-play">▶</span>
-              </div>
-              <div className="home-video-meta">
-                <span>{t.tutorial.preview}</span>
-                <strong>{tutorialVideo.title}</strong>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section id="testimonials" className="impact-section impact-section-refined home-media-section home-media-section-alt" aria-labelledby="testimonials-heading">
         <div className="container">
           <div className="home-media-grid">

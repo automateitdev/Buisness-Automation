@@ -22,21 +22,9 @@ export const NAV_ITEMS = [
     ],
   },
   {
-    label: 'Service',
-    href: '/services',
-    children: [
-      { label: 'Software Development', href: '/services/software-development', description: 'Tailored software for business processes and operations.' },
-      { label: 'Mobile App Development', href: '/services/mobile-app-development', description: 'Android and iOS experiences connected to your platform.' },
-      { label: 'Web Application Development', href: '/services/web-application-development', description: 'Responsive portals, dashboards, and business applications.' },
-      { label: 'Bulk SMS Service', href: '/services/bulk-sms-service', description: 'Promotional and transactional SMS delivery at scale.' },
-      { label: 'Domain Registration & Web Hosting', href: '/services/domain-registration-web-hosting', description: 'Domain, hosting, deployment, and uptime support.' },
-    ],
-  },
-  {
     label: 'Resources',
     href: '/resources',
     children: [
-      { label: 'Tutorials', href: '/resources/tutorials', description: 'Step-by-step platform guidance and onboarding help.' },
       { label: 'Blogs', href: '/resources/blogs', description: 'Product updates, explainers, and business technology articles.' },
       { label: 'Testimonials', href: '/resources/testimonials', description: 'Client voices and outcomes across industries.' },
       { label: 'Media Coverage', href: '/resources/media-coverage', description: 'Press mentions, announcements, and company highlights.' },
@@ -86,25 +74,6 @@ export const TOP_LEVEL_PAGES = {
     pillars: ['Education systems', 'Healthcare systems', 'Finance and HR systems', 'Association and messaging systems'],
     ctaTitle: 'Need help choosing the right product?',
     ctaText: 'Browse the product submenu to compare the right fit for your organization.',
-  },
-  services: {
-    title: 'Service',
-    eyebrow: 'Digital Services',
-    summary: 'Implementation, development, hosting, and messaging services that help organizations move from idea to dependable operation.',
-    introTitle: 'Services delivered with product thinking',
-    introText: [
-      'Our services are designed to support both custom initiatives and the successful rollout of existing platforms.',
-      'We combine discovery, design, development, infrastructure support, and post-launch assistance so delivery remains coordinated from start to finish.',
-    ],
-    highlights: ['Custom builds and platform integrations', 'Delivery plans with clear milestones', 'Support after deployment'],
-    detailCards: [
-      { title: 'Consult Before Build', text: 'We clarify requirements, constraints, and expected outcomes before committing to scope.' },
-      { title: 'Build for Use', text: 'Solutions are structured around reliability, maintainability, and the user journey, not only technical delivery.' },
-      { title: 'Support for Continuity', text: 'After launch, we stay involved with issue resolution, change requests, and optimization guidance.' },
-    ],
-    pillars: ['Planning and discovery', 'Development execution', 'Deployment and hosting', 'Operational support'],
-    ctaTitle: 'Looking for a specific service?',
-    ctaText: 'Use the Service dropdown to open each service page directly.',
   },
   resources: {
     title: 'Resources',
@@ -361,124 +330,7 @@ export const PRODUCT_PAGES = {
   },
 };
 
-export const SERVICE_SUBPAGES = {
-  'software-development': {
-    title: 'Software Development',
-    eyebrow: 'Service / Software Development',
-    summary: 'Custom business software planned and delivered around your workflows, processes, and operational goals.',
-    introTitle: 'Custom software with business context built in',
-    introText: [
-      'We develop software that reflects how your organization actually works rather than forcing teams into generic tooling.',
-      'That means understanding the process first, then shaping the application around usability, maintainability, and business outcomes.',
-    ],
-    highlights: ['Requirement-led delivery', 'Workflow-based application design', 'Support after deployment'],
-    detailCards: [
-      { title: 'Discovery', text: 'We map needs, users, and constraints before development begins.' },
-      { title: 'Implementation', text: 'Features are built with a focus on clarity, scale, and maintainability.' },
-      { title: 'Refinement', text: 'Post-launch support helps the solution stay useful as needs evolve.' },
-    ],
-    pillars: ['Requirement mapping', 'Application design', 'Development', 'Support'],
-    ctaTitle: 'Need custom software for a business process?',
-    ctaText: 'We can scope a practical build based on your current operations.',
-  },
-  'mobile-app-development': {
-    title: 'Mobile App Development',
-    eyebrow: 'Service / Mobile App Development',
-    summary: 'Mobile experiences that connect users to your services, workflows, and data through a clear interface.',
-    introTitle: 'Mobile delivery focused on real user journeys',
-    introText: [
-      'We design and build mobile applications for organizations that need stronger reach, convenience, and field accessibility.',
-      'The work focuses on usability, integration, and the day-to-day tasks users need to complete quickly on mobile devices.',
-    ],
-    highlights: ['Android and iOS-oriented experience design', 'Integration with web systems and APIs', 'Scalable mobile workflows'],
-    detailCards: [
-      { title: 'User-Centered Flow', text: 'We simplify frequent tasks so the app feels natural from first use.' },
-      { title: 'Connected Experience', text: 'Mobile apps are aligned with the larger system instead of treated as an afterthought.' },
-      { title: 'Growth Ready', text: 'The application structure can expand as new use cases emerge.' },
-    ],
-    pillars: ['UX planning', 'Interface design', 'API integration', 'App delivery'],
-    ctaTitle: 'Thinking about a mobile product or companion app?',
-    ctaText: 'We can help define the right mobile scope for your audience and workflow.',
-  },
-  'web-application-development': {
-    title: 'Web Application Development',
-    eyebrow: 'Service / Web Application Development',
-    summary: 'Responsive web applications for dashboards, portals, management tools, and process-heavy business platforms.',
-    introTitle: 'Web applications designed for clarity and control',
-    introText: [
-      'Web application development is ideal for organizations that need browser-based tools for staff, customers, members, or administrators.',
-      'We focus on responsive design, practical task flow, and system reliability so the application feels useful across devices and teams.',
-    ],
-    highlights: ['Responsive interface design', 'Business process dashboards and portals', 'Scalable architecture support'],
-    detailCards: [
-      { title: 'Portal Experiences', text: 'Build internal or external portals that organize important actions and information clearly.' },
-      { title: 'Operational Dashboards', text: 'Give teams stronger visibility into task status, metrics, and bottlenecks.' },
-      { title: 'Platform Consistency', text: 'Design and code stay aligned so the experience remains dependable and coherent.' },
-    ],
-    pillars: ['Responsive UI', 'Dashboards', 'Portals', 'Workflow tools'],
-    ctaTitle: 'Need a browser-based business system?',
-    ctaText: 'We can help define the right web application scope and rollout path.',
-  },
-  'bulk-sms-service': {
-    title: 'Bulk SMS Service',
-    eyebrow: 'Service / Bulk SMS Service',
-    summary: 'Messaging infrastructure and campaign support for alerts, announcements, promotions, and customer follow-up.',
-    introTitle: 'Bulk messaging with operational structure',
-    introText: [
-      'Bulk SMS Service helps organizations reach audiences quickly for both marketing and operational communication.',
-      'It is especially useful where timing, volume, and clarity matter, such as reminders, notices, and campaign outreach.',
-    ],
-    highlights: ['Campaign messaging support', 'Transactional and notice-based communication', 'Audience management workflows'],
-    detailCards: [
-      { title: 'Fast Outreach', text: 'Reach large groups quickly when important information must be shared without delay.' },
-      { title: 'Structured Messaging', text: 'Keep lists, campaigns, and operational notices more organized and easier to manage.' },
-      { title: 'Service Reliability', text: 'Support repeatable communication processes instead of ad hoc manual sending.' },
-    ],
-    pillars: ['Audience setup', 'Campaign flow', 'Alert sending', 'Message management'],
-    ctaTitle: 'Need a messaging service for campaigns or alerts?',
-    ctaText: 'We can recommend the right setup for your volume and communication goals.',
-  },
-  'domain-registration-web-hosting': {
-    title: 'Domain Registration & Web Hosting',
-    eyebrow: 'Service / Domain Registration & Web Hosting',
-    summary: 'Domain setup, hosting, deployment support, and foundational web infrastructure for reliable online presence.',
-    introTitle: 'A dependable foundation for your online systems',
-    introText: [
-      'This service supports organizations that want a smooth path to launching and maintaining a web presence or hosted application.',
-      'We help cover the practical setup work needed for domains, hosting, and operational continuity so teams can stay focused on the business itself.',
-    ],
-    highlights: ['Domain and hosting setup', 'Deployment support', 'Operational reliability focus'],
-    detailCards: [
-      { title: 'Launch Support', text: 'Get domain, hosting, and deployment tasks aligned so launch happens cleanly.' },
-      { title: 'Uptime Awareness', text: 'Hosting decisions are guided by reliability, speed, and support considerations.' },
-      { title: 'Growth Flexibility', text: 'The foundation can evolve as traffic, application complexity, and service needs grow.' },
-    ],
-    pillars: ['Domains', 'Hosting', 'Deployment', 'Maintenance'],
-    ctaTitle: 'Need help getting your site or app online?',
-    ctaText: 'We can guide you through setup, launch, and hosting decisions.',
-  },
-};
-
 export const RESOURCE_SUBPAGES = {
-  tutorials: {
-    title: 'Tutorials',
-    eyebrow: 'Resources / Tutorials',
-    summary: 'Guided learning materials that help users adopt systems faster and use features with confidence.',
-    introTitle: 'Practical tutorials for smoother onboarding',
-    introText: [
-      'Tutorials are designed to lower the learning curve for both new and returning users.',
-      'They focus on real tasks, not just features, so people can quickly understand how to complete meaningful work inside the product.',
-    ],
-    highlights: ['Step-by-step explanations', 'Task-oriented guidance', 'Helpful onboarding structure'],
-    detailCards: [
-      { title: 'User Onboarding', text: 'Support new users with a clear path through the basics and common routines.' },
-      { title: 'Feature Confidence', text: 'Make advanced features easier to adopt with focused and practical guidance.' },
-      { title: 'Support Reduction', text: 'Good tutorials reduce repeated support questions and increase self-sufficiency.' },
-    ],
-    pillars: ['Getting started', 'Routine workflows', 'Advanced tasks', 'Troubleshooting help'],
-    ctaTitle: 'Need help learning the platform?',
-    ctaText: 'Tutorials are the fastest place to start for guided product understanding.',
-  },
   blogs: {
     title: 'Blogs',
     eyebrow: 'Resources / Blogs',

@@ -4,7 +4,6 @@ import {
   CLIENT_PAGE,
   PRODUCT_PAGES,
   RESOURCE_SUBPAGES,
-  SERVICE_SUBPAGES,
   TOP_LEVEL_PAGES,
   getChildLinks,
 } from '@/data/siteContent';
@@ -24,25 +23,10 @@ import {
   HrPayrollPage,
   SmsSystemPage,
 } from '@/components/products/pages';
-import {
-  bulkSmsServiceData,
-  domainHostingData,
-  mobileAppDevelopmentData,
-  softwareDevelopmentData,
-  webAppDevelopmentData,
-} from '@/components/services/data';
-import {
-  BulkSmsServicePage,
-  DomainHostingPage,
-  MobileAppDevelopmentPage,
-  SoftwareDevelopmentPage,
-  WebApplicationDevelopmentPage,
-} from '@/components/services/pages';
 
 export const topLevelPageKeys = {
   about: 'about',
   products: 'products',
-  services: 'services',
   resources: 'resources',
   'our-client': 'ourClient',
   contact: 'contact',
@@ -51,7 +35,6 @@ export const topLevelPageKeys = {
 
 export const aboutSlugs = Object.keys(ABOUT_SUBPAGES);
 export const productSlugs = Object.keys(PRODUCT_PAGES);
-export const serviceSlugs = Object.keys(SERVICE_SUBPAGES);
 export const resourceSlugs = Object.keys(RESOURCE_SUBPAGES);
 
 export const productComponentData = {
@@ -72,21 +55,7 @@ export const productPageComponents = {
   'dynamic-ams': DynamicAmsPage,
 };
 
-export const serviceComponentData = {
-  'software-development': softwareDevelopmentData,
-  'mobile-app-development': mobileAppDevelopmentData,
-  'web-application-development': webAppDevelopmentData,
-  'bulk-sms-service': bulkSmsServiceData,
-  'domain-registration-web-hosting': domainHostingData,
-};
 
-export const servicePageComponents = {
-  'software-development': SoftwareDevelopmentPage,
-  'mobile-app-development': MobileAppDevelopmentPage,
-  'web-application-development': WebApplicationDevelopmentPage,
-  'bulk-sms-service': BulkSmsServicePage,
-  'domain-registration-web-hosting': DomainHostingPage,
-};
 
 export function getTopLevelPage(slug) {
   const key = topLevelPageKeys[slug];
@@ -105,9 +74,6 @@ export function getProductPage(slug) {
   return PRODUCT_PAGES[slug] ?? null;
 }
 
-export function getServicePage(slug) {
-  return SERVICE_SUBPAGES[slug] ?? null;
-}
 
 export function getResourcePage(slug) {
   return RESOURCE_SUBPAGES[slug] ?? null;

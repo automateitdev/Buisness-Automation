@@ -14,7 +14,6 @@ export default function Footer() {
   const ui = useLocalized(UI_EN, UI_BN);
   const f = ui.footer;
   const productLinks = navItems.find((item) => item.href === '/products')?.children ?? [];
-  const serviceLinks = navItems.find((item) => item.href === '/services')?.children ?? [];
   const otherLinks = OTHER_HREFS.map((href, i) => ({ href, label: f.otherLinks[i] }));
 
   return (
@@ -39,17 +38,6 @@ export default function Footer() {
             <h4 className="dn-footer-col-title">{f.productsTitle}</h4>
             <ul>
               {productLinks.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="dn-footer-link">→ {item.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="dn-footer-col">
-            <h4 className="dn-footer-col-title">{f.servicesTitle}</h4>
-            <ul>
-              {serviceLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="dn-footer-link">→ {item.label}</Link>
                 </li>

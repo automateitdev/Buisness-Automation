@@ -3,7 +3,6 @@ import Clients from '@/components/Clients';
 import Hero from '@/components/Hero';
 import ImpactAndBlog from '@/components/ImpactAndBlog';
 import Products from '@/components/Products';
-import Services from '@/components/Services';
 import StatsBar from '@/components/StatsBar';
 
 export const metadata = {
@@ -17,7 +16,6 @@ export default function HomePage() {
       <Hero />
       <About />
       <Products />
-      <Services />
       <StatsBar />
       <ImpactAndBlog />
       <Clients />
