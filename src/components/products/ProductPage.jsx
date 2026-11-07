@@ -62,7 +62,7 @@ const NO_OVERLAY = {};
 
 export default function ProductPage({ data: englishData }) {
   const data = useLocalized(englishData, PRODUCTS_BN[englishData.slug] ?? NO_OVERLAY);
-  const { hero, intro, modules = [] } = data;
+  const { hero, intro, modules = [], whyUs } = data;
   const colorClass = `prod-color-${hero.color || 'blue'}`;
 
   return (
@@ -90,6 +90,20 @@ export default function ProductPage({ data: englishData }) {
               <ModuleCard key={module.name} {...module} />
             ))}
           </div>
+
+          {whyUs && (
+            <section className="prod-why-block" aria-labelledby="prod-why-title">
+              <h2 className="prod-why-title" id="prod-why-title">{whyUs.title}</h2>
+              <ul className="prod-why-list">
+                {whyUs.items.map((item) => (
+                  <li key={item} className="prod-why-item">
+                    <span className="prod-why-check" aria-hidden="true">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </section>
     </div>

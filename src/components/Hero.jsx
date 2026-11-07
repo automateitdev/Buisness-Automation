@@ -8,10 +8,10 @@ import { HERO_SLIDES_BN } from '@/i18n/bn/hero';
 
 const SLIDES = [
   {
-    step: '1/4',
+    step: '1/3',
     title: 'Academic ERP',
     sub: 'A complete academic platform for admissions, fees, attendance, exams, communication, and everyday institutional operations.',
-    cta1: { label: 'Read More', href: '/products/academic-erp' },
+    cta1: { label: 'Read More', href: '/products/academy-ims' },
     cta2: { label: 'Contact Us', href: '/contact' },
     highlights: ['Admissions and registration', 'Exam and result workflows', 'Student and parent communication'],
     accent: 'linear-gradient(90deg,#38bdf8,#818cf8)',
@@ -19,7 +19,7 @@ const SLIDES = [
     chart: 'academic',
   },
   {
-    step: '2/4',
+    step: '2/3',
     title: 'Accounting Solution',
     sub: 'Bring ledgers, billing, reporting, reconciliation, and financial visibility into one reliable accounting workflow.',
     cta1: { label: 'Read More', href: '/products/accounting-solution' },
@@ -30,7 +30,7 @@ const SLIDES = [
     chart: 'accounting',
   },
   {
-    step: '3/4',
+    step: '3/3',
     title: 'HR & Payroll Management',
     sub: 'Manage employee records, attendance, leave, payroll, and approvals with a smoother HR operation from one dashboard.',
     cta1: { label: 'Read More', href: '/products/hr-and-payroll-management' },
@@ -39,17 +39,6 @@ const SLIDES = [
     accent: 'linear-gradient(90deg,#fbbf24,#f59e0b)',
     color1: '#fbbf24', color2: '#f59e0b',
     chart: 'hr',
-  },
-  {
-    step: '4/4',
-    title: 'Automate Software Academy',
-    sub: 'Learn practical software skills through hands-on, industry-focused training — built by the team that develops real ERP and business software.',
-    cta1: { label: 'Enquire Now', href: '/contact' },
-    cta2: { label: 'About Us', href: '/about' },
-    highlights: ['Hands-on, project-based learning', 'Taught by working software professionals', 'Career-focused skill development'],
-    accent: 'linear-gradient(90deg,#e879f9,#a855f7)',
-    color1: '#e879f9', color2: '#a855f7',
-    chart: 'academy',
   },
 ];
 
@@ -435,17 +424,7 @@ export default function Hero() {
           {/* ── Right device mockup ── */}
           <div className="hero-blue-right" key={`right-${active}`}>
             <div className="hero-device-wrap" style={{ width: '100%', maxWidth: 460, padding: '40px 30px 50px' }}>
-              {slide.chart === 'academy' ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/academy-logo.webp"
-                  alt="Automate Software Academy"
-                  style={{ width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 12px 32px rgba(0,0,0,0.35))' }}
-                  draggable={false}
-                />
-              ) : (
-                <DashboardMockup slide={slide} />
-              )}
+              <DashboardMockup slide={slide} />
             </div>
           </div>
         </div>

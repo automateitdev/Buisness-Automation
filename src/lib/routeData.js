@@ -38,7 +38,7 @@ export const productSlugs = Object.keys(PRODUCT_PAGES);
 export const resourceSlugs = Object.keys(RESOURCE_SUBPAGES);
 
 export const productComponentData = {
-  'dynamic-academic-erp': dynamicAcademicErpData,
+  'academy-ims': dynamicAcademicErpData,
   'hospital-erp': hospitalErpData,
   'accounting-solution': accountingSolutionData,
   'hr-payroll': hrPayrollData,
@@ -47,7 +47,7 @@ export const productComponentData = {
 };
 
 export const productPageComponents = {
-  'dynamic-academic-erp': DynamicAcademicErpPage,
+  'academy-ims': DynamicAcademicErpPage,
   'hospital-erp': HospitalErpPage,
   'accounting-solution': AccountingSolutionPage,
   'hr-payroll': HrPayrollPage,

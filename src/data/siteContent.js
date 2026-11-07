@@ -13,7 +13,7 @@ export const NAV_ITEMS = [
     label: 'Products',
     href: '/products',
     children: [
-      { label: 'Dynamic Academic ERP', href: '/products/dynamic-academic-erp', description: 'Education workflow automation from admission to result publishing.' },
+      { label: 'Academy IMS', href: '/products/academy-ims', description: 'Education workflow automation from admission to result publishing.' },
       { label: 'Hospital ERP', href: '/products/hospital-erp', description: 'Connected patient, billing, lab, and pharmacy operations.' },
       { label: 'Accounting Solution', href: '/products/accounting-solution', description: 'Finance, billing, compliance, and reporting in one system.' },
       { label: 'HR and Payroll', href: '/products/hr-payroll', description: 'Attendance, salary, leave, and employee lifecycle tools.' },
@@ -214,13 +214,13 @@ export const ABOUT_SUBPAGES = {
 };
 
 export const PRODUCT_PAGES = {
-  'dynamic-academic-erp': {
-    title: 'Dynamic Academic ERP',
-    eyebrow: 'Products / Dynamic Academic ERP',
+  'academy-ims': {
+    title: 'Academy IMS',
+    eyebrow: 'Products / Academy IMS',
     summary: 'An education-focused ERP that connects admissions, academics, fees, attendance, communication, and reporting.',
     introTitle: 'A structured system for academic operations',
     introText: [
-      'Dynamic Academic ERP is designed for schools, colleges, and training institutions that need better visibility across academic and administrative work.',
+      'Academy IMS is designed for schools, colleges, and training institutions that need better visibility across academic and administrative work.',
       'It supports connected workflows so admissions, routine operations, and communication all stay organized in one platform.',
     ],
     highlights: ['Admission to graduation support', 'Parent and student communication', 'Academic records and reporting'],
@@ -230,7 +230,7 @@ export const PRODUCT_PAGES = {
       { title: 'Better Visibility', text: 'Give leadership teams a stronger view of day-to-day performance and exceptions.' },
     ],
     pillars: ['Admissions', 'Attendance', 'Fees', 'Results and communication'],
-    ctaTitle: 'Want to see Dynamic Academic ERP in action?',
+    ctaTitle: 'Want to see Academy IMS in action?',
     ctaText: 'Contact us for a tailored walkthrough based on your institution type.',
   },
   'hospital-erp': {

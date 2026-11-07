@@ -7,9 +7,9 @@ import { useLocalized } from '@/i18n/LanguageProvider';
 import { PRODUCTS_SECTION_BN } from '@/i18n/bn/home-products-services';
 
 const PRODUCT_DETAILS = {
-  '/products/dynamic-academic-erp': {
+  '/products/academy-ims': {
     summary: 'Admissions, academics, attendance, fees, exam routines, and parent communication in one platform.',
-    icon: 'AE',
+    icon: 'AI',
   },
   '/products/hospital-erp': {
     summary: 'Patient flow, billing, departments, records, and operational reporting for healthcare teams.',
