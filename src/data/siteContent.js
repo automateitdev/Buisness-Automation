@@ -471,25 +471,44 @@ export const ABOUT_DETAIL_PAGES = {
   },
   'our-company': {
     heroTitle: 'About Us',
-    heroSubtitle: 'A trusted partner in digitizing education and financial services',
+    heroSubtitle: 'Automate IT Limited is a Bangladeshi software company founded in 2022.',
     badgeItems: [],
     introTitle: 'Automate IT Limited',
     introText: [
-      'Automate IT Limited is a Bangladeshi software company founded in 2022, headquartered in Dhaka. Our mission is to make the daily work of educational institutions and financial organizations simpler, more transparent and more accurate.',
-      'Our flagship product is the Academy-Institute Management System. Today, 550+ institutions across the country use it, managing the records and operations of more than 500,000 students. Student management, attendance, exams, fee collection, accounts and SMS all run on one platform.',
-      'Beyond education, we build fee collection and management systems for banks. Rupali Bank, Sonali Bank, UCB, Islami Bank Bangladesh and Chattogram City Corporation are among the organizations that rely on our technology.',
-      'We believe good software should do more than save time: it should build trust. That is why we stay with our customers after delivery, with training and support that help every institution move forward.',
+      'Automate IT Limited is a Bangladeshi software company founded in 2022. We build software that makes the daily work of educational and financial institutions simpler, more transparent and paperless.',
+      'It all started with a simple question: why do admissions, attendance, exam results, fee collection and accounts at schools and colleges still run on notebooks, spreadsheets and repeated phone calls? To remove that burden, we built the Academy Institute Management System, a web-based platform that brings everything an institution does into one place. Working with schools and colleges, we saw another need: fee collection has to be safe and easy. So we also build and maintain fee collection and management systems for banks.',
+      'Today we work with more than 550 institutions, serving over 500,000 students in total. We believe good software is not just something you sell. You have to stay beside the customer through setup, training and everyday support.',
     ],
     showCta: false,
     narrativeLayout: true,
     sections: [
       {
-        title: 'By the numbers',
-        text: 'Serving customers since 2022\n\n550+ educational institutions\n\n500,000+ students\n\n5+ banks and public organizations on our fee systems',
+        title: 'Our Story',
+        text: 'Automate IT Limited began in Dhaka in 2022 with two goals: to put accurate information in the hands of institution heads, and to make services easier for parents and students. Over time we moved from older desktop-based systems to a modern web-based platform. Working with several banks also gave us hands-on experience in online fee collection. Today our solutions are used by schools, colleges, madrasas and other kinds of institutions.',
       },
       {
-        title: 'Our mission',
-        text: 'To make every educational institution in Bangladesh transparent, efficient and digital.',
+        title: 'Our Vision',
+        text: 'To make every educational institution and financial service in Bangladesh transparent, efficient and digital through technology, so that teachers can spend more time teaching, managers can spend more time making decisions, and less time is lost to paperwork and accounting complexity.',
+      },
+      {
+        title: 'Our Mission',
+        text: '• To provide easy-to-use, reliable and affordable software so that institutions of every size can go digital.\n\n• To bring admissions, attendance, exams, fees and accounts onto one platform, reducing manual work and errors.\n\n• To connect with banks and payment channels so that fee collection is safe, fast and transparent.\n\n• To provide training at launch and regular support afterwards.\n\n• To keep improving our software by listening to customer feedback.',
+      },
+      {
+        title: 'Our Core Values',
+        text: '• Honesty and transparency: We say what we can do, and do what we say.\n\n• Customer first: We understand an institution\'s real problems before building solutions.\n\n• Simplicity: We turn complex work into simple interfaces that everyone can use.\n\n• Security and privacy: We give the highest priority to protecting student and financial data.\n\n• Continuous improvement: We learn every day and improve all the time.\n\n• Long-term relationships: We build trust through service, not just sales.',
+      },
+      {
+        title: 'What We Do',
+        text: '## 1. Academy Institute Management System\n\nComplete management software for schools, colleges and other institutions:\n\n• Student admission and profile management\n\n• Student and teacher attendance\n\n• Exams, results and mark sheets\n\n• Fee collection, dues and accounts\n\n• Reports and dashboards that give principals and managing committees a clear view at a glance\n\n## 2. Online Fee Collection and Payment Integration\n\nAn integrated way to collect fees through banks and mobile financial services. We are connected with Islami Bank, bKash, SSLCommerz and UCB Bank.\n\n## 3. Fee Management Systems for Banks\n\nDesign, deployment and annual maintenance (AMC) of fee collection software that can run on a bank\'s own servers.\n\n## 4. Data Migration\n\nSafe transfer of student, attendance, exam and accounts data from older software or spreadsheets to the new system.\n\n## 5. Training and Support\n\nStaff training, hands-on help during launch, and ongoing technical support.',
+      },
+      {
+        title: 'Why Choose Automate IT',
+        text: '• Real-world experience: Experience working with the data of 550+ institutions and over 500,000 students.\n\n• Everything on one platform: No juggling separate pieces of software.\n\n• Expertise in both education and banking: Fee collection is our core strength.\n\n• Affordable service: A simple pricing structure designed with institutions of all sizes in mind.\n\n• Web-based: Use it from anywhere, on any device.\n\n• Local support: Help in your language, at the time you need it.',
+      },
+      {
+        title: 'Our Commitment',
+        text: 'We don\'t just deliver software. We stand with your institution through its digital transformation. Protecting your data, keeping our service dependable and acting transparently is our commitment to you.',
       },
     ],
   },

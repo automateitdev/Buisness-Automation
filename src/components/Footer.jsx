@@ -28,9 +28,9 @@ export default function Footer() {
               <span>{ui.siteName}</span>
             </div>
             <div className="dn-footer-social">
-              <a href="#" aria-label="Facebook" className="dn-social-btn">f</a>
-              <a href="#" aria-label="LinkedIn" className="dn-social-btn">in</a>
-              <a href="#" aria-label="YouTube" className="dn-social-btn">▶</a>
+              <a href="https://www.facebook.com/automateitbd" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="dn-social-btn">f</a>
+              <a href="https://www.linkedin.com/company/automateitbd/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="dn-social-btn">in</a>
+              <a href="https://www.youtube.com/@automateitlimited" aria-label="YouTube" target="_blank" rel="noopener noreferrer" className="dn-social-btn">▶</a>
             </div>
           </div>
 

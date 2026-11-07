@@ -12602,3 +12602,22 @@ textarea {
   font-size: 0.85rem;
   line-height: 1.35;
 }
+
+/* About detail pages: lists and sub-headings inside story cards */
+.about-detail-list {
+  margin: 0 0 14px 1.2em;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.about-detail-list li {
+  line-height: 1.6;
+}
+
+.about-detail-subheading {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+}

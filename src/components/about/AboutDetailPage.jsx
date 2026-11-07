@@ -24,6 +24,33 @@ function ProfileAvatar({ member }) {
   return <div className="about-profile-avatar-fallback">{initials}</div>;
 }
 
+/** Renders section text: blank-line separated paragraphs; "• " lines become a list; "## " becomes a sub-heading. */
+function RichText({ text }) {
+  const blocks = [];
+  text.split('\n\n').forEach((line) => {
+    if (line.startsWith('• ')) {
+      const last = blocks[blocks.length - 1];
+      if (last?.type === 'list') last.items.push(line.slice(2));
+      else blocks.push({ type: 'list', items: [line.slice(2)] });
+    } else if (line.startsWith('## ')) {
+      blocks.push({ type: 'heading', text: line.slice(3) });
+    } else {
+      blocks.push({ type: 'p', text: line });
+    }
+  });
+  return blocks.map((block, index) => {
+    if (block.type === 'list') {
+      return (
+        <ul key={index} className="about-detail-list">
+          {block.items.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      );
+    }
+    if (block.type === 'heading') return <h4 key={index} className="about-detail-subheading">{block.text}</h4>;
+    return <p key={index}>{block.text}</p>;
+  });
+}
+
 export default function AboutDetailPage({ page: pageEn, bn, relatedLinks: relatedLinksEn = [] }) {
   const page = useLocalized(pageEn, bn);
   const t = useLocalized(ABOUT_UI_EN, ABOUT_UI_BN).detail;
@@ -147,9 +174,7 @@ export default function AboutDetailPage({ page: pageEn, bn, relatedLinks: relate
               {sectionCards.map((section) => (
                 <article key={section.title} className={`about-detail-card${narrativeLayout ? ' about-detail-story-card' : ''}`}>
                   <h3>{section.title}</h3>
-                  {section.text.split('\n\n').map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+                  <RichText text={section.text} />
                 </article>
               ))}
             </div>
