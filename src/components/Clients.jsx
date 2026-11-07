@@ -52,7 +52,8 @@ export default function Clients() {
         <div className="clients-logo-area animate-on-scroll home-clients-grid">
           {clients.slice(0, 12).map((client) => (
             <div key={client.name} className="clients-logo-pill home-clients-logo-pill">
-              <span className="home-clients-logo-mark" style={{ background: client.color }}>{client.abbr}</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="home-clients-logo-img" src={client.logo} alt="" loading="lazy" width="54" height="54" />
               <span>{client.name}</span>
             </div>
           ))}

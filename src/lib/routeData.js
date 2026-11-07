@@ -30,7 +30,6 @@ export const topLevelPageKeys = {
   resources: 'resources',
   'our-client': 'ourClient',
   contact: 'contact',
-  account: 'account',
 };
 
 export const aboutSlugs = Object.keys(ABOUT_SUBPAGES);

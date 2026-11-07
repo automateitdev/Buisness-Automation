@@ -7,7 +7,7 @@ export const UI_EN = {
     servicesTitle: 'Our Services',
     otherTitle: 'Other Links',
     contactTitle: 'Contact Us',
-    otherLinks: ['Contact Us', 'Careers', 'Portfolio', 'Privacy Policy', 'Terms & Conditions', 'Delete Account'],
+    otherLinks: ['Contact Us', 'Careers', 'Portfolio', 'Privacy Policy', 'Terms & Conditions'],
     address: ['House- 34/A, Road- 13/2, Block- K,', 'South Banasree, Dhaka-1219'],
     phone: '09613-241234',
     hours: 'Sat - Thu: 9:00 AM - 6:00 PM',

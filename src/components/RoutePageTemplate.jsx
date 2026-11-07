@@ -102,7 +102,6 @@ export default function RoutePageTemplate({
             </div>
             <div className="route-cta-actions">
               <Link href="/contact" className="btn-primary">{ui.contactUs}</Link>
-              <Link href="/account" className="btn-outline-blue">{ui.account}</Link>
             </div>
           </section>
 

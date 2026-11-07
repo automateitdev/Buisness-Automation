@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { blogsData as blogsEn, testimonialsData as testimonialsEn } from '@/components/resources/resourcesData';
+import { blogsData as blogsEn } from '@/components/resources/resourcesData';
 import { useLocalized } from '@/i18n/LanguageProvider';
 import { RESOURCES_BN } from '@/i18n/bn/resources';
 import { HOME_BN } from '@/i18n/bn/home';
@@ -17,12 +17,12 @@ function getYoutubeVideoId(url) {
 export default function ImpactAndBlog() {
   const ref = useRef(null);
   const blogsData = useLocalized(blogsEn, RESOURCES_BN.blogs);
-  const testimonialsData = useLocalized(testimonialsEn, RESOURCES_BN.testimonials);
+  // const testimonialsData = useLocalized(testimonialsEn, RESOURCES_BN.testimonials);
   const t = useLocalized(HOME_EN, HOME_BN).impact;
   const [blogPage, setBlogPage] = useState(0);
   const postsPerPage = 3;
   const totalPages = Math.ceil(blogsData.featuredPosts.length / postsPerPage);
-  const testimonialVideo = testimonialsData.videos[0];
+  // const testimonialVideo = testimonialsData.videos[0];
   const visiblePosts = blogsData.featuredPosts.slice(
     blogPage * postsPerPage,
     blogPage * postsPerPage + postsPerPage,
@@ -44,6 +44,7 @@ export default function ImpactAndBlog() {
 
   return (
     <div ref={ref}>
+      {/* Video testimonial section — temporarily hidden; uncomment to bring it back.
       <section id="testimonials" className="impact-section impact-section-refined home-media-section home-media-section-alt" aria-labelledby="testimonials-heading">
         <div className="container">
           <div className="home-media-grid">
@@ -75,6 +76,7 @@ export default function ImpactAndBlog() {
           </div>
         </div>
       </section>
+      */}
 
       <section id="blog" className="blogs-grid-section" aria-labelledby="blog-heading">
         <div className="container">

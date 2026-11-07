@@ -12567,3 +12567,38 @@ textarea {
 .about-home-visual-card h3 {
   line-height: 1.35;
 }
+
+/* Client institution logos (Our Client page + home strip) */
+.ocl-logo.ocl-logo-img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  padding: 6px;
+}
+
+.ocl-logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.home-clients-logo-img {
+  flex: none;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  padding: 4px;
+}
+
+.home-clients-logo-pill span {
+  font-size: 0.85rem;
+  line-height: 1.35;
+}

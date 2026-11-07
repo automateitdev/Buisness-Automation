@@ -7,7 +7,7 @@ import { NAV_ITEMS_BN } from '@/i18n/bn/nav';
 import { UI_EN } from '@/i18n/ui';
 import { UI_BN } from '@/i18n/bn/ui';
 
-const OTHER_HREFS = ['/contact', '/careers', '/portfolio', '/privacy-policy', '/terms', '/delete-account'];
+const OTHER_HREFS = ['/contact', '/careers', '/portfolio', '/privacy-policy', '/terms'];
 
 export default function Footer() {
   const navItems = useLocalized(NAV_ITEMS, NAV_ITEMS_BN);

@@ -123,7 +123,7 @@ export default function AboutDetailPage({ page: pageEn, bn, relatedLinks: relate
                     <p>{primaryMember.position}</p>
                   </div>
                 </div>
-                <blockquote className="about-speech-quote">{`"${visibleSpeech}"`}</blockquote>
+                {visibleSpeech && <blockquote className="about-speech-quote">{`"${visibleSpeech}"`}</blockquote>}
                 {primaryMember.summary && <p className="about-speech-summary">{primaryMember.summary}</p>}
                 {primaryMember.fullSpeech && primaryMember.fullSpeech !== primaryMember.speech && (
                   <button
