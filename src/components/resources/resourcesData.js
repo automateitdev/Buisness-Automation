@@ -29,14 +29,14 @@ export const tutorialsData = {
   },
   videos: [
     {
-      title: 'Dynamic Academic ERP Overview',
-      category: 'Academic ERP',
+      title: 'Academy IMS Overview',
+      category: 'Academy IMS',
       duration: '6 min',
       youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     },
     {
       title: 'Student Admission Setup Tutorial',
-      category: 'Academic ERP',
+      category: 'Academy IMS',
       duration: '8 min',
       youtubeUrl: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
     },
@@ -110,12 +110,12 @@ export const blogsData = {
     {
       slug: 'dynamic-academic-erp-reduces-school-admin-load',
       category: 'Product',
-      title: 'How Dynamic Academic ERP Reduces Administrative Load in Schools',
+      title: 'How Academy IMS Reduces Administrative Load in Schools',
       excerpt: 'A practical look at which modules deliver the most time savings for school administrators in their first year of use.',
       readTime: '6 min read',
       date: 'April 2026',
       content: [
-        'Dynamic Academic ERP reduces manual coordination by connecting admissions, attendance, fee management, exam records, and parent communication inside one workflow.',
+        'Academy IMS reduces manual coordination by connecting admissions, attendance, fee management, exam records, and parent communication inside one workflow.',
         'Schools usually feel the first impact in recurring administrative work. Staff no longer need to re-enter the same student information across multiple registers, and reporting becomes much faster at the end of each term.',
         'The biggest improvement often comes from visibility. Principals and coordinators can monitor pending fees, class attendance, and result publishing status from one system instead of collecting updates manually.',
       ],
@@ -243,7 +243,7 @@ export const testimonialsData = {
   },
   videos: [
     {
-      title: 'School Client Experience with Dynamic Academic ERP',
+      title: 'School Client Experience with Academy IMS',
       client: 'ABC Higher Secondary School',
       youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     },
@@ -264,8 +264,8 @@ export const testimonialsData = {
       role: 'Principal',
       organization: 'ABC Higher Secondary School, Dhaka',
       rating: 5,
-      text: 'Dynamic Academic ERP transformed the way we manage student records, fees, and results. What used to take our staff days at the end of term now happens in hours. The support team is always responsive and genuinely helpful.',
-      product: 'Dynamic Academic ERP',
+      text: 'Academy IMS transformed the way we manage student records, fees, and results. What used to take our staff days at the end of term now happens in hours. The support team is always responsive and genuinely helpful.',
+      product: 'Academy IMS',
     },
     {
       name: 'Dr. Sita Thapa',

@@ -476,7 +476,7 @@ export const ABOUT_DETAIL_PAGES = {
       },
       {
         title: 'More Than IT Services',
-        text: 'Dynamic Technosoft transcends being a mere IT service provider. With our Dynamic vision, we are on a mission to digitize Bangladesh and drive economic prosperity. Our groundbreaking products such as Academic ERP and Hospital ERP are revolutionizing vital healthcare and educational institutions, enabling them to offer superior services. As an IT service provider, we understand the pivotal role that technology plays in uplifting businesses. We eagerly anticipate the opportunity to become your trusted partner on the road to success.',
+        text: 'Dynamic Technosoft transcends being a mere IT service provider. With our Dynamic vision, we are on a mission to digitize Bangladesh and drive economic prosperity. Our groundbreaking products such as Academy IMS and Hospital ERP are revolutionizing vital healthcare and educational institutions, enabling them to offer superior services. As an IT service provider, we understand the pivotal role that technology plays in uplifting businesses. We eagerly anticipate the opportunity to become your trusted partner on the road to success.',
       },
       {
         title: 'Our Mission: Leading with Vision, Performance, & Integrity',

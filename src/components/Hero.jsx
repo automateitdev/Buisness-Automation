@@ -9,7 +9,7 @@ import { HERO_SLIDES_BN } from '@/i18n/bn/hero';
 const SLIDES = [
   {
     step: '1/3',
-    title: 'Academic ERP',
+    title: 'Academy IMS',
     sub: 'A complete academic platform for admissions, fees, attendance, exams, communication, and everyday institutional operations.',
     cta1: { label: 'Read More', href: '/products/academy-ims' },
     cta2: { label: 'Contact Us', href: '/contact' },

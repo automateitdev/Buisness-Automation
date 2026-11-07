@@ -17,7 +17,7 @@ const INFO = [
   { label: 'Office Hours', value: 'Saturday–Thursday, 9:00 AM – 6:00 PM (Bangladesh Time)', icon: 'clock' },
 ];
 
-const SUBJECTS = ['Academic ERP Inquiry','Accounting ERP Inquiry','Hospital ERP Inquiry','HRM & Payroll Inquiry','Web Development','Mobile App Development','Hardware & Networking','Computer Training','General Inquiry'];
+const SUBJECTS = ['Academy IMS Inquiry','Accounting ERP Inquiry','Hospital ERP Inquiry','HRM & Payroll Inquiry','Web Development','Mobile App Development','Hardware & Networking','Computer Training','General Inquiry'];
 
 const CC_EN = {
   jobs: JOBS,

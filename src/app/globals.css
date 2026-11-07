@@ -12555,3 +12555,15 @@ textarea {
   .prod-why-block { padding: 28px 22px; }
   .prod-why-list { grid-template-columns: 1fr; }
 }
+
+/* Home About: "by the numbers" cards */
+.about-home-feature strong.about-home-stat {
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--primary);
+}
+
+.about-home-visual-card h3 {
+  line-height: 1.35;
+}

@@ -36,7 +36,7 @@ export default function StatsBar() {
         const idx = refs.current.indexOf(entry.target);
         if (idx === -1 || started.current[idx]) return;
         started.current[idx] = true;
-        const { target, suffix } = stats[idx];
+        const { target, suffix, noGrouping } = stats[idx];
         let startTime = null;
         const duration = 2000;
 
@@ -44,7 +44,7 @@ export default function StatsBar() {
           if (!startTime) startTime = ts;
           const progress = Math.min((ts - startTime) / duration, 1);
           const value = Math.floor(easeOutQuad(progress) * target);
-          if (entry.target) entry.target.textContent = value.toLocaleString(numberLocale) + suffix;
+          if (entry.target) entry.target.textContent = value.toLocaleString(numberLocale, { useGrouping: !noGrouping }) + suffix;
           if (progress < 1) requestAnimationFrame(step);
         };
 
@@ -118,7 +118,7 @@ export default function StatsBar() {
               }}
               style={{ fontSize: '3rem', fontWeight: '800', color: '#0f172a', lineHeight: '1', letterSpacing: '-0.03em' }}
             >
-              {item.target.toLocaleString(numberLocale)}{item.suffix}
+              {item.target.toLocaleString(numberLocale, { useGrouping: !item.noGrouping })}{item.suffix}
             </span>
             <span style={{ color: '#64748b', fontSize: '0.9rem', fontWeight: '600', marginTop: '12px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               {item.label}
