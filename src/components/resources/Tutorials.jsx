@@ -88,11 +88,18 @@ export default function Tutorials() {
 
       <section className="resource-clean-section">
         <div className="container">
-          <div className="resource-clean-grid">
-            {visibleVideos.map((video, index) => (
-              <TutorialVideoCard key={video.title} {...video} index={index} />
-            ))}
-          </div>
+          {videos.length === 0 ? (
+            <p className="resource-empty-note">
+              Tutorial videos are being recorded. In the meantime, our support team will walk your
+              staff through any workflow — ask for a guided session.
+            </p>
+          ) : (
+            <div className="resource-clean-grid">
+              {visibleVideos.map((video, index) => (
+                <TutorialVideoCard key={video.title} {...video} index={index} />
+              ))}
+            </div>
+          )}
           {hasMore && (
             <div className="resource-see-more-wrap">
               <button

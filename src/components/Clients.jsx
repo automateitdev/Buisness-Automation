@@ -29,7 +29,7 @@ export default function Clients() {
             <span className="section-label">Our Clients</span>
             <h2 className="section-h2" id="clients-heading">Meet our clients</h2>
             <p className="section-sub clients-sub-refined">
-              Client logos on the homepage are pulled from the same source used on the clients page, so both stay aligned.
+              Institutions across Bangladesh run admissions, attendance, fees, exams and guardian communication on our systems.
             </p>
           </div>
           <div className="clients-visual-refined" aria-hidden="true">
@@ -44,17 +44,19 @@ export default function Clients() {
           </div>
         </div>
 
-        <div className="clients-logo-area animate-on-scroll home-clients-grid">
-          {CLIENTS.slice(0, 12).map((client) => (
-            <div key={client.name} className="clients-logo-pill home-clients-logo-pill">
-              <span className="home-clients-logo-mark" style={{ background: client.color }}>{client.abbr}</span>
-              <span>{client.name}</span>
-            </div>
-          ))}
-        </div>
+        {CLIENTS.length > 0 && (
+          <div className="clients-logo-area animate-on-scroll home-clients-grid">
+            {CLIENTS.slice(0, 12).map((client) => (
+              <div key={client.name} className="clients-logo-pill home-clients-logo-pill">
+                <span className="home-clients-logo-mark" style={{ background: client.color }}>{client.abbr}</span>
+                <span>{client.name}</span>
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className="animate-on-scroll home-clients-actions">
-          <Link href="/our-client" className="btn-secondary">View All Clients →</Link>
+          <Link href="/our-client" className="btn-secondary">See the sectors we serve →</Link>
         </div>
       </div>
     </section>

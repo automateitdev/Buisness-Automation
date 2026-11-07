@@ -3,8 +3,8 @@
 import { useEffect, useRef } from 'react';
 
 const stats = [
-  { target: 16, suffix: '+', label: 'Years of Experience', icon: 'YR' },
-  { target: 2500, suffix: '+', label: 'Happy Customers', icon: 'HC' },
+  { target: 10, suffix: '+', label: 'Years of Experience', icon: 'YR' },
+  { target: 500, suffix: '+', label: 'Institutions Served', icon: 'HC' },
   { target: 200, suffix: 'K', label: 'ERP Users', icon: 'EU' },
   { target: 5, suffix: '+', label: 'Flagship Products', icon: 'FP' },
 ];
@@ -66,8 +66,8 @@ export default function StatsBar() {
       <div className="container">
         <div className="section-header animate-on-scroll" style={{ textAlign: 'center', marginBottom: '56px' }}>
           <span className="section-label">Our Impact</span>
-          <h2 className="section-h2" id="trust-stats-heading" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', fontWeight: '800', color: '#0f172a', marginBottom: '16px' }}>Trusted By 2500+ Organizations</h2>
-          <p style={{ color: '#64748b', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6' }}>Delivering scalable, secure, and intuitive enterprise solutions across Bangladesh.</p>
+          <h2 className="section-h2" id="trust-stats-heading" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', fontWeight: '800', color: '#0f172a', marginBottom: '16px' }}>Trusted By Institutions Across Bangladesh</h2>
+          <p style={{ color: '#64748b', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6' }}>Academic ERP, business software, messaging and hosting — delivered, migrated, trained and supported.</p>
         </div>
       </div>
 

@@ -78,7 +78,8 @@ export default function Footer() {
             <ul className="dn-footer-contact">
               <li>
                 <span className="dn-fc-icon">📍</span>
-                <span>Dhaka, Bangladesh<br />Baneshwor, New Baneshwor</span>
+                {/* TODO: replace with the full registered office address */}
+                <span>Dhaka, Bangladesh</span>
               </li>
               <li>
                 <span className="dn-fc-icon">📞</span>
@@ -104,7 +105,7 @@ export default function Footer() {
       <div className="dn-footer-bottom">
         <div className="container dn-footer-bottom-inner">
           <p>© 2026 Automate IT Limited. All Rights Reserved.</p>
-          <p>IRD Certified ERP Provider | Bangladesh&apos;s Trusted Technology Partner</p>
+          <p>Academic ERP, Software &amp; IT Services | Dhaka, Bangladesh</p>
         </div>
       </div>
     </footer>

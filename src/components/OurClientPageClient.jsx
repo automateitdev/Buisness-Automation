@@ -1,59 +1,62 @@
 'use client';
 import PageHero from './PageHero';
 
-export const CLIENTS = [
-  { name: 'Bangladesh Rastra Bank', abbr: 'NRB', color: '#0057A8' },
-  { name: 'FNCCI', abbr: 'FNCCI', color: '#0072c3' },
-  { name: 'Godawari', abbr: 'GDW', color: '#0096D6' },
-  { name: 'Little Buddha', abbr: 'LB', color: '#006fb8' },
-  { name: 'Mero TV', abbr: 'MTV', color: '#0057A8' },
-  { name: 'Banijay Udhyog', abbr: 'BU', color: '#0096D6' },
-  { name: 'JME', abbr: 'JME', color: '#0072c3' },
-  { name: 'John Deere', abbr: 'JD', color: '#367C2B' },
-  { name: 'GIZ', abbr: 'GIZ', color: '#E2001A' },
-  { name: 'Dabur Bangladesh', abbr: 'DNP', color: '#C41E3A' },
-  { name: 'FWEAN', abbr: 'FWN', color: '#0057A8' },
-  { name: 'CSI', abbr: 'CSI', color: '#0096D6' },
-  { name: 'Hulas Steel', abbr: 'HLS', color: '#555' },
-  { name: 'Asian Paints', abbr: 'AP', color: '#B31942' },
-  { name: 'Urban Bangladesh', abbr: 'URN', color: '#0072c3' },
-  { name: 'Tata Hitachi', abbr: 'TH', color: '#003087' },
-  { name: 'Tests', abbr: 'TST', color: '#0096D6' },
-  { name: 'KL Dugar', abbr: 'KLD', color: '#0057A8' },
-  { name: 'Sumo', abbr: 'SMO', color: '#333' },
-  { name: 'MG Motors', abbr: 'MG', color: '#1B1B1B' },
-  { name: 'Mahindra', abbr: 'MHN', color: '#C41E3A' },
-  { name: 'Royal Enfield', abbr: 'RE', color: '#4B0008' },
-  { name: 'City College', abbr: 'CC', color: '#0057A8' },
-  { name: 'Sunrise Group', abbr: 'SRG', color: '#E8431A' },
+// Client list. Add your own entries and both the homepage section and the
+// /our-client page pick them up automatically:
+//   { name: 'Institution name', abbr: 'IN', color: '#0057A8' }
+// Emptied deliberately: the previous entries were inherited from the template
+// this site was rebranded from and were not Automate IT Limited clients.
+export const CLIENTS = [];
+
+
+
+const SECTORS = [
+  { name: 'Schools', abbr: 'SCH', color: '#0057A8' },
+  { name: 'Colleges', abbr: 'COL', color: '#0072c3' },
+  { name: 'Madrasahs', abbr: 'MAD', color: '#0096D6' },
+  { name: 'Hospitals & Clinics', abbr: 'HOS', color: '#1B7F5A' },
+  { name: 'Businesses & SMEs', abbr: 'BIZ', color: '#0057A8' },
+  { name: 'Associations', abbr: 'ASN', color: '#0072c3' },
 ];
-
-
 
 export default function OurClientPageClient() {
   return (
     <>
       <PageHero
         title="Our Clients"
-        subtitle="From government institutions to private enterprises, schools, hospitals, and industry giants — we are proud to serve Bangladesh's most trusted organizations."
+        subtitle="Schools, colleges, madrasahs, hospitals, businesses and associations across Bangladesh run their daily operations on our systems."
         theme="navy"
       />
 
       <section className="ocl-clients-section">
         <div className="container">
           <div className="ocl-section-head">
-            <h2 className="ocl-heading">Meet Our Clients</h2>
+            <h2 className="ocl-heading">Who We Work With</h2>
           </div>
-          <div className="ocl-grid">
-            {CLIENTS.map((client) => (
-              <div key={client.name} className="ocl-card">
-                <div className="ocl-logo" style={{ background: client.color }}>
-                  <span className="ocl-abbr">{client.abbr}</span>
+
+          {CLIENTS.length > 0 ? (
+            <div className="ocl-grid">
+              {CLIENTS.map((client) => (
+                <div key={client.name} className="ocl-card">
+                  <div className="ocl-logo" style={{ background: client.color }}>
+                    <span className="ocl-abbr">{client.abbr}</span>
+                  </div>
+                  <p className="ocl-name">{client.name}</p>
                 </div>
-                <p className="ocl-name">{client.name}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="ocl-grid">
+              {SECTORS.map((sector) => (
+                <div key={sector.name} className="ocl-card">
+                  <div className="ocl-logo" style={{ background: sector.color }}>
+                    <span className="ocl-abbr">{sector.abbr}</span>
+                  </div>
+                  <p className="ocl-name">{sector.name}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

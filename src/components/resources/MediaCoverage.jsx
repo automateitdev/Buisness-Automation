@@ -80,11 +80,17 @@ export default function MediaCoverage() {
           <div className="media-section-head">
             <h2 className="media-section-h2">Coverage</h2>
           </div>
-          <div className="resource-clean-grid media-cards-grid">
-            {visibleItems.map((item, index) => (
-              <CoverageCard key={item.title} {...item} index={index} />
-            ))}
-          </div>
+          {featured.length === 0 ? (
+            <p className="resource-empty-note">
+              Press mentions and event coverage will be listed here as they are published.
+            </p>
+          ) : (
+            <div className="resource-clean-grid media-cards-grid">
+              {visibleItems.map((item, index) => (
+                <CoverageCard key={item.title} {...item} index={index} />
+              ))}
+            </div>
+          )}
           {hasMore && (
             <div className="resource-see-more-wrap">
               <button
