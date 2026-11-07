@@ -6,7 +6,6 @@ export const NAV_ITEMS = [
     children: [
       { label: 'Our Team', href: '/about/our-team', description: 'Leadership, culture, and specialists behind our delivery.' },
       { label: 'Our Company', href: '/about/our-company', description: 'Our story, capabilities, and operating approach.' },
-      { label: 'Dynamic Group', href: '/about/dynamic-group', description: 'The wider group vision, units, and shared strengths.' },
     ],
   },
   {
@@ -66,7 +65,7 @@ export const TOP_LEVEL_PAGES = {
     ],
     pillars: ['Business-first discovery', 'Implementation ownership', 'Training and onboarding', 'Continuous support'],
     ctaTitle: 'Want to know more about how we work?',
-    ctaText: 'Explore our company structure, our team, and the Dynamic Group vision from the About Us menu.',
+    ctaText: 'Explore our company story and the people behind the delivery from the About Us menu.',
   },
   products: {
     title: 'Products',
@@ -222,25 +221,6 @@ export const ABOUT_SUBPAGES = {
     pillars: ['Mission-led execution', 'Client trust', 'Solution quality', 'Continuous improvement'],
     ctaTitle: 'Want the bigger picture behind our work?',
     ctaText: 'Our company page explains the principles that shape our products and services.',
-  },
-  'dynamic-group': {
-    title: 'Dynamic Group',
-    eyebrow: 'About Us / Dynamic Group',
-    summary: 'A broader brand story that connects capabilities, business units, and a shared commitment to service quality.',
-    introTitle: 'A connected group with shared standards',
-    introText: [
-      'Dynamic Group communicates a wider ecosystem of expertise while keeping a consistent focus on execution and client support.',
-      'It allows different capabilities to reinforce each other without losing the clarity of a unified service experience.',
-    ],
-    highlights: ['Shared operating values', 'Complementary business capabilities', 'Unified delivery standards'],
-    detailCards: [
-      { title: 'Brand Cohesion', text: 'A shared group identity helps communicate trust, consistency, and broader capability.' },
-      { title: 'Specialized Units', text: 'Different service or product areas can grow while still aligning with the same quality expectations.' },
-      { title: 'Collaborative Advantage', text: 'Combined expertise creates better outcomes for clients with multi-layered needs.' },
-    ],
-    pillars: ['Shared direction', 'Complementary strengths', 'Service continuity', 'Growth-ready structure'],
-    ctaTitle: 'Exploring the wider Dynamic story?',
-    ctaText: 'Dynamic Group shows how our broader capability stays connected by one standard of delivery.',
   },
 };
 
@@ -572,104 +552,44 @@ export const ABOUT_DETAIL_PAGES = {
     teamSectionLabel: '',
     teamSectionTitle: 'Our Best Expertise',
     teamSectionDescription: 'When your mission is to be better, faster and smarter, you need the best people driving your vision forward.',
-    teamMembers: [
-      {
-        id: 'deepak-sah',
-        name: 'Deepak Sah',
-        position: 'Chief Executive Officer',
-        photo: '',
-        speech: 'For many years we have witnessed consistent growth and achieved long-term success.',
-        fullSpeech: 'For the last decade, Dynamic Technosoft has provided the Bangladeshi market with unique IT services that have allowed various businesses to maximize their profit. For many years we have witnessed consistent growth and achieved long-term success.',
-        summary: '',
-      },
-      {
-        id: 'sachin-sah',
-        name: 'Sachin Sah',
-        position: 'Chief Technical Officer',
-        photo: '',
-        speech: 'Technology should make business simpler, stronger, and more dependable.',
-        fullSpeech: 'Technology should make business simpler, stronger, and more dependable. At Dynamic Technosoft, we focus on building modern web solutions that are reliable, scalable, and practical for real business operations. Our goal is to combine smart engineering with clear execution so clients can grow with confidence.',
-        summary: 'Guides architecture, engineering standards, and product quality.',
-      },
-      {
-        id: 'arjun-sah',
-        name: 'Arjun Sah',
-        position: 'Chief Operating Officer',
-        photo: '',
-        speech: 'Operational excellence turns a good solution into a successful client experience.',
-        fullSpeech: 'Operational excellence turns a good solution into a successful client experience. We work to keep our projects organized, responsive, and outcome-focused from planning through delivery. That discipline helps us support clients with consistency, speed, and confidence at every stage.',
-        summary: 'Oversees execution, coordination, and smooth service delivery.',
-      },
-    ],
+    // Leadership. Add real people:
+    //   { id, name, position, photo, speech, fullSpeech, summary }
+    // Emptied deliberately: the previous entries were names carried over from the
+    // source template, not Automate IT Limited leadership.
+    teamMembers: [],
   },
   'our-company': {
     heroTitle: 'Our Company',
-    heroSubtitle: 'Introducing Dynamic Technosoft, your one-stop shop for innovative software and a comprehensive range of IT services.',
+    heroSubtitle: 'Automate IT Limited builds the academic ERP, business software and messaging systems that institutions across Bangladesh run on every working day.',
     badgeItems: [],
-    introTitle: 'Dynamic Technosoft: Your Premier IT Service Provider',
+    introTitle: 'Automate IT Limited: an ERP partner for Bangladeshi institutions',
     introText: [
-      'Dynamic Technosoft is a renowned leader in the IT services industry, with a track record of over a decade, delivering comprehensive software development and web solutions. Our commitment extends to clients in both the Bangladeshi and international markets, as we endeavor to tackle complex challenges on a global scale.',
-      'Our wealth of experience enables us to drive digital innovations that not only achieve exceptional business outcomes but also elevate performance and competitiveness for our valued customers and stakeholders.',
+      'Automate IT Limited is a Dhaka-based software company working with schools, colleges, madrasahs, hospitals, businesses and associations. Our flagship product, Dynamic Academic ERP, carries an institution from the admission form through attendance, fees and mark entry to the printed tabulation sheet.',
+      'We do the parts that decide whether an ERP actually gets used: configuring it around your own class and fee structure, migrating the records you already keep, training staff by role, and answering the phone afterwards.',
     ],
     showCta: false,
     narrativeLayout: true,
     sections: [
       {
-        title: 'One-Stop Shop Convenience',
-        text: 'Dynamic Technosoft pioneers the one-stop-shop concept, empowering our clients to conveniently outsource solutions for all their diverse needs. Our diverse range of services includes ERP/Customized Software Development, Mobile App Development, Website Development, Bulk SMS Solutions, Domain Registration and Web Hosting, as well as Online Attendance Solutions. With a network spanning 7 provinces and over 50 dealer connections throughout Bangladesh, we have cultivated an extensive partner ecosystem that fosters collaboration and harnesses technology independence.',
+        title: 'One Partner For The Whole Stack',
+        text: 'ERP and custom software development, mobile apps, web applications, bulk SMS, domain registration, web hosting and annual IT support all come from the same company. That matters on the day a result SMS does not reach a guardian: there is one number to call instead of three vendors pointing at each other. We work directly and through a dealer network that reaches institutions across all eight divisions of Bangladesh.',
       },
       {
-        title: 'Our Vision for the Future',
-        text: 'At Dynamic, our vision is to continually adapt and expand our service portfolio to meet the evolving needs of our clients. Our dedicated team of Engineers, Software Developers, IT and Business Professionals boasts years of experience in the field, enabling us to provide tailored solutions for your company\'s unique requirements. This commitment to excellence empowers enterprises at every level to maximize their profitability. We take pride in serving major corporate giants like Hulas Steel, Dugar Group, Nissan Motors, and many others, who rely on our products and services to effectively manage their operations.',
+        title: 'Education First',
+        text: 'Most of our work is in education, and the product shows it. Class, section, group, roll and the optional and fourth subject are first-class concepts. Marks are entered as CQ, MCQ and practical, and grade points are calculated on the 5.00 scale by your own grading rule. Guardian SMS goes out in Bangla or English with delivery reports. Fees collect through bKash, Nagad and bank, and post straight to the student ledger, with waivers and stipends recorded against the reason they were given.',
       },
       {
-        title: 'More Than IT Services',
-        text: 'Dynamic Technosoft transcends being a mere IT service provider. With our Dynamic vision, we are on a mission to digitize Bangladesh and drive economic prosperity. Our groundbreaking products such as Academic ERP and Hospital ERP are revolutionizing vital healthcare and educational institutions, enabling them to offer superior services. As an IT service provider, we understand the pivotal role that technology plays in uplifting businesses. We eagerly anticipate the opportunity to become your trusted partner on the road to success.',
+        title: 'How We Deliver',
+        text: 'An ERP fails at migration and training, not at installation. We assess your office for a day, configure classes, fee heads, grading rules and user roles to match, migrate your student, guardian, staff and dues data and reconcile it against your registers, then train staff by role. Go-live starts with one term and one class set, running alongside the old register, before the whole institution switches over.',
       },
       {
-        title: 'Our Mission: Leading with Vision, Performance, & Integrity',
-        text: 'Dynamic Technosoft is firmly committed to a vision that boldly addresses the challenges of the future. Our mission is to cultivate a culture centered on exceptional performance, steadfastly paired with unwavering integrity. Our guiding light, the CLEAR Values, drives us to continually adapt and elevate our standards. Our clients are the cornerstone of our existence. In unison with our clients, we tackle complex issues, strategically minimizing business risk while seizing the full spectrum of opportunities. At Dynamic Technosoft, our core belief is that we are only as strong as our client partnerships.',
+        title: 'After Go-Live',
+        text: 'The contract does not end at handover. Support runs on phone and WhatsApp during office hours and is busiest exactly when an ERP is really tested, at admission and exam time. Version upgrades, backups and server monitoring stay on our side under an annual support agreement.',
       },
       {
-        title: 'Our Visions',
-        text: 'Client-Centric Focus: Our success hinges on the utmost satisfaction of our valued customers. We are unwaveringly dedicated to delivering exceptional service and unmatched value.\n\nIndustry Leadership: Our innovative services spearhead a digital revolution, effectively addressing significant challenges within our communities and companies.\n\nEfficacy and Solutions: We are wholeheartedly committed to providing 100% effective solutions to our clients\' most pressing challenges.\n\nContinuous Aspiration: We continually aspire to elevate the quality of our services and fortify our collective growth as a company.\n\nAccountability for Results: We take full responsibility for our commitments and remain steadfastly accountable for delivering the expected results.',
+        title: 'What We Hold To',
+        text: 'Clear scope: you know what is being built, in what order, and what it costs.\n\nNo abandoned installs: a system nobody was trained on is not a delivery, and we do not count it as one.\n\nYour data is yours: exports in open formats, on request, without a negotiation.\n\nHonest timelines: we would rather quote four weeks and hold to it than quote two and miss.\n\nAccountability: when something we built breaks, fixing it is our cost, not a change request.',
       },
-    ],
-  },
-  'dynamic-group': {
-    heroTitle: 'Discover Excellence with Our Dynamic Group',
-    heroSubtitle: 'Our group of enthusiastic professionals is bound together by a common dedication to excellence, innovation, and advancement.',
-    badgeItems: [],
-    introTitle: 'Dynamic Group: Empowering Societies Through IT and Modern Skills',
-    introText: [
-      'Dynamic Technosoft Pvt. Ltd stands as a pivotal member of the Dynamic Group, a consortium of companies dedicated to making a positive impact on society. Our collective focus on IT and contemporary skills aims to drive societal progress and empowerment.',
-      'Within the Dynamic Group, several companies work tirelessly to enhance education systems and impart cutting-edge tech knowledge to the younger generation, while others specialize in offering technology-driven solutions to complex challenges.',
-    ],
-    showCta: false,
-    narrativeLayout: true,
-    sections: [
-      {
-        title: 'Empowering Through Skills And Education',
-        text: 'Dynamic Skills Pvt. Ltd, Dynamic Media Networks & Communication Pvt. Ltd., Gyan Mandir Academy Pvt. Ltd., and Dynamic Enterprises are committed to equipping the youth with essential 21st-century skills and strengthening education with modern capability.',
-      },
-      {
-        title: 'Technology-Driven Solutions',
-        text: 'Dynamic Technosoft Pvt. Ltd., Brainlight Technologies Pvt. Ltd., Pivotal Technologies, and Codeplex IT Enterprises specialize in delivering technology-driven solutions to complex challenges. Their software and products have proven instrumental in enhancing the services and profitability of numerous enterprises.',
-      },
-      {
-        title: 'A Group Built On Shared Values',
-        text: 'With a dedicated workforce of over 150 employees who share common values and principles, Dynamic Group stands as a formidable institution in our nation. We are steadfastly committed to serving our clients and stakeholders with the utmost excellence.',
-      },
-    ],
-    logos: [
-      { name: 'Dynamic Technosoft Pvt. Ltd.', short: 'DT', tagline: 'Software & ERP Solutions' },
-      { name: 'Brainlight Technologies Pvt. Ltd.', short: 'BT', tagline: 'Technology Innovation' },
-      { name: 'Pivotal Technologies', short: 'PT', tagline: 'Digital Solutions' },
-      { name: 'Codeplex IT Enterprises', short: 'CI', tagline: 'IT Services' },
-      { name: 'Dynamic Skills Pvt. Ltd.', short: 'DS', tagline: 'Modern Skills Training' },
-      { name: 'Dynamic Media Networks & Communication Pvt. Ltd.', short: 'DM', tagline: 'Media & Communication' },
-      { name: 'Gyan Mandir Academy Pvt. Ltd.', short: 'GM', tagline: 'Education Excellence' },
-      { name: 'Dynamic Enterprises', short: 'DE', tagline: 'Business Support' },
     ],
   },
 };

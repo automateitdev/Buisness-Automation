@@ -15,8 +15,8 @@ export default function ImpactAndBlog() {
   const [blogPage, setBlogPage] = useState(0);
   const postsPerPage = 3;
   const totalPages = Math.ceil(blogsData.featuredPosts.length / postsPerPage);
-  const tutorialVideo = tutorialsData.videos[0];
-  const testimonialVideo = testimonialsData.videos[0];
+  const tutorialVideo = tutorialsData.videos[0] ?? null;
+  const testimonialVideo = testimonialsData.videos[0] ?? null;
   const visiblePosts = blogsData.featuredPosts.slice(
     blogPage * postsPerPage,
     blogPage * postsPerPage + postsPerPage,
@@ -50,22 +50,24 @@ export default function ImpactAndBlog() {
               <Link href="/tutorial" className="btn-secondary">Watch Now →</Link>
             </div>
 
-            <a className="home-video-preview animate-slide-right" href={tutorialVideo.youtubeUrl} target="_blank" rel="noreferrer">
-              <div className="home-video-thumb">
-                <Image
-                  src={`https://img.youtube.com/vi/${getYoutubeVideoId(tutorialVideo.youtubeUrl)}/hqdefault.jpg`}
-                  alt={tutorialVideo.title}
-                  width={640}
-                  height={360}
-                  unoptimized
-                />
-                <span className="home-video-play">▶</span>
-              </div>
-              <div className="home-video-meta">
-                <span>Tutorial Preview</span>
-                <strong>{tutorialVideo.title}</strong>
-              </div>
-            </a>
+            {tutorialVideo && (
+              <a className="home-video-preview animate-slide-right" href={tutorialVideo.youtubeUrl} target="_blank" rel="noreferrer">
+                <div className="home-video-thumb">
+                  <Image
+                    src={`https://img.youtube.com/vi/${getYoutubeVideoId(tutorialVideo.youtubeUrl)}/hqdefault.jpg`}
+                    alt={tutorialVideo.title}
+                    width={640}
+                    height={360}
+                    unoptimized
+                  />
+                  <span className="home-video-play">▶</span>
+                </div>
+                <div className="home-video-meta">
+                  <span>Tutorial Preview</span>
+                  <strong>{tutorialVideo.title}</strong>
+                </div>
+              </a>
+            )}
           </div>
         </div>
       </section>
@@ -77,27 +79,29 @@ export default function ImpactAndBlog() {
               <span className="section-label">Customer Testimonials</span>
               <h2 className="section-h2" id="testimonials-heading">Customer Testimonials</h2>
               <p className="section-sub">
-                Watch success stories from clients who trust our products, our implementation process, and our long-term support.
+                Institutions across Bangladesh run admissions, fees, exams and guardian communication on our systems. We can arrange a reference call with one of them.
               </p>
-              <Link href="/testimonials" className="btn-secondary">Watch Now →</Link>
+              <Link href="/testimonials" className="btn-secondary">Read Client Stories →</Link>
             </div>
 
-            <a className="home-video-preview animate-slide-left" href={testimonialVideo.youtubeUrl} target="_blank" rel="noreferrer">
-              <div className="home-video-thumb">
-                <Image
-                  src={`https://img.youtube.com/vi/${getYoutubeVideoId(testimonialVideo.youtubeUrl)}/hqdefault.jpg`}
-                  alt={testimonialVideo.title}
-                  width={640}
-                  height={360}
-                  unoptimized
-                />
-                <span className="home-video-play">▶</span>
-              </div>
-              <div className="home-video-meta">
-                <span>Video Testimonial</span>
-                <strong>{testimonialVideo.title}</strong>
-              </div>
-            </a>
+            {testimonialVideo && (
+              <a className="home-video-preview animate-slide-left" href={testimonialVideo.youtubeUrl} target="_blank" rel="noreferrer">
+                <div className="home-video-thumb">
+                  <Image
+                    src={`https://img.youtube.com/vi/${getYoutubeVideoId(testimonialVideo.youtubeUrl)}/hqdefault.jpg`}
+                    alt={testimonialVideo.title}
+                    width={640}
+                    height={360}
+                    unoptimized
+                  />
+                  <span className="home-video-play">▶</span>
+                </div>
+                <div className="home-video-meta">
+                  <span>Video Testimonial</span>
+                  <strong>{testimonialVideo.title}</strong>
+                </div>
+              </a>
+            )}
           </div>
         </div>
       </section>

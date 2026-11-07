@@ -134,11 +134,19 @@ export default function Testimonials() {
             <div className="testi-section-label">Client Reviews</div>
             <h2 className="testi-section-h2">{intro.heading}</h2>
           </div>
-          <div className="testi-text-grid">
-            {visibleTestimonials.map((t, index) => (
-              <TextTestimonialCard key={t.name} {...t} index={index} />
-            ))}
-          </div>
+          {testimonials.length === 0 ? (
+            <p className="resource-empty-note">
+              We are collecting written and on-camera stories from the institutions using our
+              systems, and will publish them here with their permission. Want to speak to a
+              reference institution before you decide? Ask us and we will arrange it.
+            </p>
+          ) : (
+            <div className="testi-text-grid">
+              {visibleTestimonials.map((t, index) => (
+                <TextTestimonialCard key={t.name} {...t} index={index} />
+              ))}
+            </div>
+          )}
           {hasMore && (
             <div className="resource-see-more-wrap">
               <button

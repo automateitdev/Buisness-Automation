@@ -2,14 +2,14 @@
 import { useState, useEffect, useRef } from 'react';
 
 const JOBS = [
-  { title: 'Software Developer (.NET / AngularJS)', dept: 'Engineering', location: 'Dhaka | Dhaka' },
+  { title: 'Software Developer (.NET / AngularJS)', dept: 'Engineering', location: 'Dhaka' },
   { title: 'Business Development Executive', dept: 'Sales', location: 'Dhaka (Multiple)' },
-  { title: 'Technical Support Engineer', dept: 'Support', location: 'Dhaka | Dhaka | Pokhara' },
+  { title: 'Technical Support Engineer', dept: 'Support', location: 'Dhaka' },
 ];
 
 const INFO = [
-  { label: 'Headquarters', value: 'B&S Complex, 2nd Floor, Sankhamul Road,\nNew Baneshwor, Dhaka, Bangladesh', icon: 'pin' },
-  { label: 'Branch Offices', value: 'Dhaka · Pokhara · Dhaka · Dhangadhi · Biratnagar', icon: 'pin' },
+  // TODO: replace with the full registered office address
+  { label: 'Head Office', value: 'Dhaka, Bangladesh', icon: 'pin' },
   { label: 'Phone', value: '09678-221323', icon: 'phone' },
   { label: 'Email', value: 'info@automate.com.bd', icon: 'mail', isLink: true },
   { label: 'Website', value: 'automate.com.bd', icon: 'mail', isLink: false, isWebsite: true },
@@ -64,7 +64,7 @@ export default function CareersAndContact() {
               <p className="about-body">Be part of a team of 200+ passionate professionals driving digital transformation across Bangladesh. We offer competitive salaries, growth opportunities, and the chance to work on impactful enterprise projects.</p>
             </div>
             <div className="culture-stats">
-              {[['200+','Team Members'],['5+','Office Locations'],['Growth','Culture'],['Work-Life','Balance']].map(([n,l],i) => (
+              {[['50+','Specialists'],['10+','Years Delivering'],['Growth','Culture'],['Work-Life','Balance']].map(([n,l],i) => (
                 <div key={l} className={`culture-stat animate-on-scroll${i>=2?' ':''}`.trim()}
                   style={i===2?{background:'linear-gradient(135deg,#F0F7FF,#DCF0FF)',borderColor:'#DBEAFE'}:i===3?{background:'linear-gradient(135deg,#F0FDF4,#DCFCE7)',borderColor:'#BBF7D0'}:{}}>
                   <span className="culture-stat-num" style={i>=2?{color:i===2?'#0057A8':'#16A34A',fontSize:'1.1rem'}:{}}>{n}</span>
@@ -125,7 +125,7 @@ export default function CareersAndContact() {
               </div>
               <div className="map-placeholder">
                 <svg width="36" height="36" fill="none" stroke="#0057A8" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>B&amp;S Complex, Sankhamul Road, New Baneshwor, Dhaka</p>
+                <p>Dhaka, Bangladesh</p>
                 <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">View on Google Maps →</a>
               </div>
             </div>

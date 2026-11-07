@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import PageHero from '../PageHero';
 import { ABOUT_DETAIL_PAGES } from '@/data/siteContent';
+import { ourTeamData } from './ourTeamData';
 
 function ProfileAvatar({ member }) {
   const initials = member.name
@@ -41,6 +42,34 @@ export default function OurTeam() {
         theme="navy"
         compact
       />
+
+      <section className="about-detail-section">
+        <div className="container">
+          <div className="about-detail-section-header">
+            <h2 className="about-detail-heading">{ourTeamData.intro.heading}</h2>
+            {ourTeamData.intro.paragraphs.map((text) => (
+              <p className="about-detail-text about-team-section-text" key={text}>{text}</p>
+            ))}
+          </div>
+          <div className="ot-dept-grid">
+            {ourTeamData.departments.map((dept) => (
+              <div className="ot-dept-card" key={dept.name}>
+                <div className="ot-dept-head">
+                  <span className="ot-dept-icon" aria-hidden="true">{dept.icon}</span>
+                  <div>
+                    <h3 className="ot-dept-name">{dept.name}</h3>
+                    <span className="ot-dept-count">{dept.count} specialists</span>
+                  </div>
+                </div>
+                <p className="ot-dept-desc">{dept.description}</p>
+                <ul className="ot-dept-skills">
+                  {dept.skills.map((skill) => <li key={skill}>{skill}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {teamPage.teamMembers?.length > 0 && primaryMember && (
         <section className="about-detail-section about-detail-team-section">

@@ -6,7 +6,7 @@ export default function WhyUs() {
   const ref = useRef(null);
 
   const strengths = [
-    { title: 'IRD Certified ERP', text: 'A trusted platform approach shaped around dependable compliance and business process clarity.' },
+    { title: 'Built For Bangladeshi Institutions', text: 'EIIN and board registration data, GPA on the 5.00 scale, Bangla SMS, and fee collection through bKash, Nagad and bank — in the product, not bolted on.' },
     { title: 'One-Stop Shop', text: 'Products, services, implementation, and support are handled together for smoother delivery.' },
     { title: 'Long-Term Support', text: 'We stay involved after deployment with issue handling, optimization, and guided follow-up.' },
     { title: 'Cross-Sector Experience', text: 'Education, healthcare, finance, associations, and business teams use our systems every day.' },

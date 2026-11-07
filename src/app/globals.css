@@ -1474,18 +1474,6 @@ textarea {
   text-decoration: underline;
 }
 
-.ird-badge {
-  display: inline-block;
-  background: #F0FDF4;
-  color: #16A34A;
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 999px;
-  margin-left: 8px;
-  border: 1px solid #86EFAC;
-}
-
 .product-cta {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   border-radius: 12px;
@@ -12449,4 +12437,79 @@ textarea {
   .svc-hosting-item {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── Resource empty states ── */
+.resource-empty-note {
+  max-width: 60ch;
+  margin: 8px auto 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* ── Our Team: department breakdown ── */
+.ot-dept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.ot-dept-card {
+  background: #fff;
+  border: 1px solid #e8edf2;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ot-dept-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ot-dept-icon { font-size: 1.6rem; line-height: 1; }
+
+.ot-dept-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.ot-dept-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary, #0057A8);
+  letter-spacing: 0.02em;
+}
+
+.ot-dept-desc {
+  color: #4b5a68;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.ot-dept-skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ot-dept-skills li {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+  border-radius: 999px;
+  padding: 5px 11px;
 }
