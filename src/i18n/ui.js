@@ -12,6 +12,6 @@ export const UI_EN = {
     phone: '09613-241234',
     hours: 'Sat - Thu: 9:00 AM - 6:00 PM',
     copyright: '© 2026 Automate IT Limited. All Rights Reserved.',
-    tagline: "IRD Certified ERP Provider | Bangladesh's Trusted Technology Partner",
+    tagline: "Bangladesh's Trusted Technology Partner",
   },
 };
