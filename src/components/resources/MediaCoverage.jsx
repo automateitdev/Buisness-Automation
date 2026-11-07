@@ -85,11 +85,15 @@ export default function MediaCoverage() {
           <div className="media-section-head">
             <h2 className="media-section-h2">{ui.coverage}</h2>
           </div>
-          <div className="resource-clean-grid media-cards-grid">
-            {visibleItems.map((item, index) => (
-              <CoverageCard key={mediaCoverageData.featured[index].link} {...item} typeKey={mediaCoverageData.featured[index].type} openLabel={ui.openArticle} index={index} />
-            ))}
-          </div>
+          {featured.length === 0 ? (
+            <p className="resource-empty-note">{ui.noCoverage}</p>
+          ) : (
+            <div className="resource-clean-grid media-cards-grid">
+              {visibleItems.map((item, index) => (
+                <CoverageCard key={mediaCoverageData.featured[index].link} {...item} typeKey={mediaCoverageData.featured[index].type} openLabel={ui.openArticle} index={index} />
+              ))}
+            </div>
+          )}
           {hasMore && (
             <div className="resource-see-more-wrap">
               <button

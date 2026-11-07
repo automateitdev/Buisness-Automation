@@ -72,11 +72,15 @@ export default function Testimonials() {
             <div className="testi-section-label">{ui.clientReviews}</div>
             <h2 className="testi-section-h2">{intro.heading}</h2>
           </div>
-          <div className="testi-text-grid">
-            {visibleTestimonials.map((t, index) => (
-              <TextTestimonialCard key={testimonialsData.testimonials[index].name} {...t} index={index} />
-            ))}
-          </div>
+          {testimonials.length === 0 ? (
+            <p className="resource-empty-note">{ui.noTestimonials}</p>
+          ) : (
+            <div className="testi-text-grid">
+              {visibleTestimonials.map((t, index) => (
+                <TextTestimonialCard key={testimonialsData.testimonials[index].name} {...t} index={index} />
+              ))}
+            </div>
+          )}
           {hasMore && (
             <div className="resource-see-more-wrap">
               <button

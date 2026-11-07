@@ -10,7 +10,7 @@ export const tutorialsData = {
     eyebrow: 'Resources · Tutorials',
     title: 'Tutorials',
     subtitle:
-      'Step-by-step video tutorials to help your team configure, use, and get the most from every Dynamic Technosoft product.',
+      'Step-by-step video tutorials to help your team configure, use, and get the most from every Automate IT Limited product.',
     badges: ['Video Tutorials', 'Step-by-Step', 'Beginner to Advanced'],
     color: 'blue',
   },
@@ -27,56 +27,9 @@ export const tutorialsData = {
     description:
       'Open any tutorial video to watch the walkthrough on YouTube. We show the first six videos by default and reveal the rest with an animated see more button when additional content is available.',
   },
-  videos: [
-    {
-      title: 'Academy IMS Overview',
-      category: 'Academy IMS',
-      duration: '6 min',
-      youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    },
-    {
-      title: 'Student Admission Setup Tutorial',
-      category: 'Academy IMS',
-      duration: '8 min',
-      youtubeUrl: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
-    },
-    {
-      title: 'Fee Collection and Payment Entry',
-      category: 'Accounting',
-      duration: '7 min',
-      youtubeUrl: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
-    },
-    {
-      title: 'Hospital ERP Patient Registration Flow',
-      category: 'Hospital ERP',
-      duration: '9 min',
-      youtubeUrl: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-    },
-    {
-      title: 'HR and Payroll Attendance Configuration',
-      category: 'HR and Payroll',
-      duration: '5 min',
-      youtubeUrl: 'https://www.youtube.com/watch?v=ScMzIvxBSi4',
-    },
-    {
-      title: 'Bulk SMS Campaign Creation',
-      category: 'SMS System',
-      duration: '6 min',
-      youtubeUrl: 'https://www.youtube.com/watch?v=5qap5aO4i9A',
-    },
-    {
-      title: 'Reports and Analytics Walkthrough',
-      category: 'Reporting',
-      duration: '10 min',
-      youtubeUrl: 'https://www.youtube.com/watch?v=Zi_XLOBDo_Y',
-    },
-    {
-      title: 'Dealer Portal and Lead Follow-Up',
-      category: 'Dealership',
-      duration: '7 min',
-      youtubeUrl: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
-    },
-  ],
+  // Client videos. Add real recordings only.
+  // Emptied: every previous youtubeUrl was an unrelated stand-in video.
+  videos: [],
   cta: {
     heading: 'Need a tutorial for something not listed here?',
     text: 'Our support team can create custom guidance or walk you through any feature live.',
@@ -89,7 +42,7 @@ export const blogsData = {
     eyebrow: 'Resources · Blogs',
     title: 'Blogs',
     subtitle:
-      'Updates, implementation insight, and practical business technology articles from the Dynamic Technosoft team.',
+      'Updates, implementation insight, and practical business technology articles from the Automate IT Limited team.',
     badges: ['Product Updates', 'Industry Insights', 'Implementation Tips'],
     color: 'green',
   },
@@ -232,7 +185,7 @@ export const testimonialsData = {
   intro: {
     heading: 'See What Our Client Say\'s',
     paragraphs: [
-      'Dynamic Technosoft is a recognized leader in the field of IT service providers providing comprehensive software development and web products for more than a decade.',
+      'Automate IT Limited builds ERP, business software and messaging systems for institutions across Bangladesh.',
       'Watch client stories and success videos to see how organizations describe their experience with our team, our products, and our support.',
     ],
   },
@@ -241,78 +194,17 @@ export const testimonialsData = {
     heading: 'Testimonials in motion',
     description: 'Open any video to hear directly from our clients and partners. Each card includes a clickable YouTube video and a clear title.',
   },
-  videos: [
-    {
-      title: 'School Client Experience with Academy IMS',
-      client: 'ABC Higher Secondary School',
-      youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    },
-    {
-      title: 'Hospital Team Review of Dynamic Hospital ERP',
-      client: 'Greenfield Hospital & Research Center',
-      youtubeUrl: 'https://www.youtube.com/watch?v=aqz-KE-bpKQ',
-    },
-    {
-      title: 'Association Growth Story with Dynamic AMS',
-      client: 'Bangladesh Professionals Association',
-      youtubeUrl: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
-    },
-  ],
-  testimonials: [
-    {
-      name: 'Ram Bahadur Shrestha',
-      role: 'Principal',
-      organization: 'ABC Higher Secondary School, Dhaka',
-      rating: 5,
-      text: 'Academy IMS transformed the way we manage student records, fees, and results. What used to take our staff days at the end of term now happens in hours. The support team is always responsive and genuinely helpful.',
-      product: 'Academy IMS',
-    },
-    {
-      name: 'Dr. Sita Thapa',
-      role: 'Medical Director',
-      organization: 'Greenfield Hospital & Research Center',
-      rating: 5,
-      text: 'We struggled with disconnected systems across OPD, pharmacy, and billing. Since deploying Hospital ERP, our coordination has improved visibly. Billing errors are almost gone and the reports are much more useful for management decisions.',
-      product: 'Hospital ERP',
-    },
-    {
-      name: 'Prakash Adhikari',
-      role: 'Finance Manager',
-      organization: 'National Trading Co. Pvt. Ltd.',
-      rating: 5,
-      text: 'The accounting solution gave us a cleaner view of our financial position in real time. Month-end closings that used to take a week now take a day. The audit trail has been particularly useful for our annual reviews.',
-      product: 'Accounting Solution',
-    },
-    {
-      name: 'Anita Gurung',
-      role: 'HR Director',
-      organization: 'Summit Services Group',
-      rating: 5,
-      text: 'HR and Payroll saved our team significant manual effort every month. The leave and attendance system is clean and our employees love being able to see their own records. Payroll has been error-free since we implemented it.',
-      product: 'HR & Payroll',
-    },
-    {
-      name: 'Bimal Karki',
-      role: 'General Secretary',
-      organization: 'Bangladesh Professionals Association',
-      rating: 5,
-      text: 'Dynamic AMS digitized our entire membership lifecycle. Renewals are automated, members can update their own profiles, and our event management has become far more organized. Highly recommend for any association.',
-      product: 'Dynamic AMS',
-    },
-    {
-      name: 'Deepa Shahi',
-      role: 'Operations Manager',
-      organization: 'FastDelivery Logistics Pvt. Ltd.',
-      rating: 5,
-      text: 'Their software development team built our custom order management system exactly as we needed it. The process was transparent throughout, the delivery was on schedule, and post-launch support has been excellent.',
-      product: 'Software Development',
-    },
-  ],
+  // Client videos. Add real recordings only.
+  // Emptied: every previous youtubeUrl was an unrelated stand-in video.
+  videos: [],
+  // Client stories. Add real, permitted entries only.
+  // Emptied: the previous entries were invented people at placeholder
+  // organisations, carried over from the source template.
+  testimonials: [],
   stats: [
-    { value: '500+', label: 'Organizations Served' },
+    { value: '550+', label: 'Institutions Served' },
     { value: '98%', label: 'Client Satisfaction' },
-    { value: '4.9/5', label: 'Average Rating' },
-    { value: '10+', label: 'Years of Delivery' },
+        { value: '2022', label: 'Serving Since' },
   ],
   cta: {
     heading: 'Ready to become a success story?',
@@ -342,40 +234,10 @@ export const mediaCoverageData = {
     heading: 'Selected media coverage',
     description: 'Explore published mentions, interviews, and recognition pieces from external platforms and event organizers.',
   },
-  featured: [
-    {
-      outlet: 'Tech Khabar Bangladesh',
-      type: 'Feature Article',
-      title: 'Automate IT Limited: Building Enterprise Software for Bangladesh\'s Growing Organizations',
-      date: 'March 2026',
-      excerpt: 'A profile piece on Automate IT Limited\'s journey from a small development firm to a recognized ERP and services provider across Bangladesh.',
-      link: 'https://example.com/media/tech-khabar-feature',
-    },
-    {
-      outlet: 'Business 360',
-      type: 'Interview',
-      title: 'Interview: How Automate IT Limited is Solving Real Operational Problems with Custom Software',
-      date: 'January 2026',
-      excerpt: 'An interview with the leadership team on product philosophy, growth strategy, and building software for the Bangladeshi market.',
-      link: 'https://example.com/media/business-360-interview',
-    },
-    {
-      outlet: 'Bangladesh Business Directory',
-      type: 'Award',
-      title: 'Best IT Solutions Provider Award 2025',
-      date: 'December 2025',
-      excerpt: 'Recognized as one of Bangladesh\'s leading IT solution providers in the small-to-medium enterprise segment.',
-      link: 'https://example.com/media/best-it-solutions-provider-award',
-    },
-    {
-      outlet: 'IT Professional Bangladesh Conference',
-      type: 'Speaker',
-      title: 'Conference Presentation: ERP Adoption in Education Institutions',
-      date: 'November 2025',
-      excerpt: 'Automate IT Limited presented findings from ERP deployments across 20+ educational institutions at the annual IT conference.',
-      link: 'https://example.com/media/erp-adoption-conference',
-    },
-  ],
+  // Press, awards and event mentions. Add real entries with real links.
+  // Emptied: the previous entries named Nepali outlets, pointed at
+  // example.com, and claimed an award from the source template.
+  featured: [],
   milestones: [
     { year: '2025', title: 'Reached 500+ Active Client Organizations' },
     { year: '2024', title: 'Launched Dynamic AMS for Association Management' },
@@ -402,7 +264,7 @@ export const dealershipData = {
   intro: {
     heading: 'Provide the information below, and one of our experts will contact you within the next day.',
     paragraphs: [
-      'Dynamic Technosoft works with partners who want to expand access to modern software solutions and serve schools with confidence.',
+      'Automate IT Limited works with partners who want to expand access to modern software solutions and serve schools with confidence.',
       'Submit your dealership request with your business details, target market, and current interest level so our partnership team can follow up quickly.',
     ],
   },
@@ -426,7 +288,7 @@ export const dealershipData = {
       { name: 'targetedSchools', label: 'Targeted Schools per month', placeholder: 'Enter targeted No. of Schools', type: 'text' },
       { name: 'marketingMediums', label: 'What marketing mediums do you utilize?', placeholder: 'Enter your marketing mediums', type: 'text' },
     ],
-    interestLabel: 'Please describe: your current interest level in becoming a Dynamic Technosoft dealer.',
+    interestLabel: 'Please describe: your current interest level in becoming a Automate IT Limited dealer.',
     interestOptions: [
       'Highly Interested',
       'Moderately Interested',

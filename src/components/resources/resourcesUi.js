@@ -10,6 +10,8 @@ export const RESOURCES_UI_EN = {
   clientReviews: 'Client Reviews',
   coverage: 'Coverage',
   openArticle: 'Open Article',
+  noTestimonials: 'We are collecting written and on-camera stories from the institutions using our systems, and will publish them here with their permission. Want to speak to a reference institution before you decide? Ask us and we will arrange it.',
+  noCoverage: 'Press mentions and event coverage will be listed here as they are published.',
   ourJourney: 'Our Journey',
   companyMilestones: 'Company Milestones',
   latestArticles: 'Latest Articles',

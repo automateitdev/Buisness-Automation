@@ -4,13 +4,14 @@ import { useLocalized } from '../i18n/LanguageProvider';
 import { CC_BN } from '../i18n/bn/careersContact';
 
 const JOBS = [
-  { title: 'Software Developer (.NET / AngularJS)', dept: 'Engineering', location: 'Dhaka | Dhaka' },
+  { title: 'Software Developer (.NET / AngularJS)', dept: 'Engineering', location: 'Dhaka' },
   { title: 'Business Development Executive', dept: 'Sales', location: 'Dhaka (Multiple)' },
   { title: 'Technical Support Engineer', dept: 'Support', location: 'Dhaka' },
 ];
 
 const INFO = [
-  { label: 'Headquarters', value: 'B&S Complex, 2nd Floor, Sankhamul Road,\nNew Baneshwor, Dhaka, Bangladesh', icon: 'pin' },
+  // TODO: replace with the full registered office address
+  { label: 'Head Office', value: 'Dhaka, Bangladesh', icon: 'pin' },
   { label: 'Phone', value: '09613-241234', icon: 'phone' },
   { label: 'Email', value: 'info@automate.com.bd', icon: 'mail', isLink: true },
   { label: 'Website', value: 'automate.com.bd', icon: 'mail', isLink: false, isWebsite: true },
@@ -23,8 +24,8 @@ const CC_EN = {
   jobs: JOBS,
   info: INFO,
   subjects: SUBJECTS,
-  statLabels: ['Team Members', 'Office Locations', 'Culture', 'Balance'],
-  statNums: ['200+', '5+', 'Growth', 'Work-Life'],
+  statLabels: ['Specialists', 'Head Office', 'Culture', 'Balance'],
+  statNums: ['50+', 'Dhaka', 'Growth', 'Work-Life'],
   careersLabel: 'CAREERS',
   careersHeading: "Join Bangladesh's Leading IT Company",
   careersBody: 'Be part of a team of 200+ passionate professionals driving digital transformation across Bangladesh. We offer competitive salaries, growth opportunities, and the chance to work on impactful enterprise projects.',
