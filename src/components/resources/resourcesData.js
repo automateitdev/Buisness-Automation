@@ -239,7 +239,7 @@ export const mediaCoverageData = {
   // example.com, and claimed an award from the source template.
   featured: [],
   milestones: [
-    { year: '2025', title: 'Reached 500+ Active Client Organizations' },
+    { year: '2025', title: 'Expanded Academic ERP Delivery Across Bangladesh' },
     { year: '2024', title: 'Launched Dynamic AMS for Association Management' },
     { year: '2023', title: 'Expanded to Hospital ERP market segment' },
     { year: '2022', title: 'Team expanded to 50+ specialists' },
