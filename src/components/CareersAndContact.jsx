@@ -4,13 +4,12 @@ import { useState, useEffect, useRef } from 'react';
 const JOBS = [
   { title: 'Software Developer (.NET / AngularJS)', dept: 'Engineering', location: 'Dhaka | Dhaka' },
   { title: 'Business Development Executive', dept: 'Sales', location: 'Dhaka (Multiple)' },
-  { title: 'Technical Support Engineer', dept: 'Support', location: 'Dhaka | Dhaka | Pokhara' },
+  { title: 'Technical Support Engineer', dept: 'Support', location: 'Dhaka' },
 ];
 
 const INFO = [
   { label: 'Headquarters', value: 'B&S Complex, 2nd Floor, Sankhamul Road,\nNew Baneshwor, Dhaka, Bangladesh', icon: 'pin' },
-  { label: 'Branch Offices', value: 'Dhaka · Pokhara · Dhaka · Dhangadhi · Biratnagar', icon: 'pin' },
-  { label: 'Phone', value: '09678-221323', icon: 'phone' },
+  { label: 'Phone', value: '09613-241234', icon: 'phone' },
   { label: 'Email', value: 'info@automate.com.bd', icon: 'mail', isLink: true },
   { label: 'Website', value: 'automate.com.bd', icon: 'mail', isLink: false, isWebsite: true },
   { label: 'Office Hours', value: 'Saturday–Thursday, 9:00 AM – 6:00 PM (Bangladesh Time)', icon: 'clock' },
@@ -125,7 +124,7 @@ export default function CareersAndContact() {
               </div>
               <div className="map-placeholder">
                 <svg width="36" height="36" fill="none" stroke="#0057A8" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <p>B&amp;S Complex, Sankhamul Road, New Baneshwor, Dhaka</p>
+                <p>House- 34/A, Road- 13/2, Block- K, South Banasree, Dhaka-1219</p>
                 <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">View on Google Maps →</a>
               </div>
             </div>
@@ -153,7 +152,7 @@ export default function CareersAndContact() {
                       </div>
                       <div className="form-group">
                         <label htmlFor="phone" className="form-label">Phone Number</label>
-                        <input id="phone" type="tel" className="form-input" placeholder="+977-XXXXXXXXXX" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})}/>
+                        <input id="phone" type="tel" className="form-input" placeholder="01XXX-XXXXXX" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})}/>
                       </div>
                     </div>
                     <div className="form-row" style={{gridTemplateColumns:'1fr'}}>

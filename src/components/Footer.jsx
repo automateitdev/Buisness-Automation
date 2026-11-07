@@ -21,16 +21,9 @@ export default function Footer() {
         <div className="container dn-footer-grid">
           <div className="dn-footer-brand">
             <div className="dn-footer-logo">
-              <svg width="40" height="40" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-                <rect width="38" height="38" rx="8" fill="rgba(255,255,255,0.15)" />
-                <path d="M10 8h8c6.627 0 12 5.373 12 12s-5.373 12-12 12h-8V8z" fill="white" />
-                <path d="M10 14h6c3.314 0 6 2.686 6 6s-2.686 6-6 6h-6V14z" fill="rgba(0,102,178,0.5)" />
-                <circle cx="16" cy="20" r="2" fill="white" />
-                <path d="M24 12L28 12L28 28L24 28" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="28" cy="12" r="1.5" fill="#00c6ff" />
-                <circle cx="28" cy="20" r="1.5" fill="#00c6ff" />
-                <circle cx="28" cy="28" r="1.5" fill="#00c6ff" />
-              </svg>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" width="40" height="40" alt="" aria-hidden="true" />
+
               <span>Automate IT Limited</span>
             </div>
             <div className="dn-footer-social">
@@ -78,11 +71,11 @@ export default function Footer() {
             <ul className="dn-footer-contact">
               <li>
                 <span className="dn-fc-icon">📍</span>
-                <span>Dhaka, Bangladesh<br />Baneshwor, New Baneshwor</span>
+                <span>House- 34/A, Road- 13/2, Block- K,<br />South Banasree, Dhaka-1219</span>
               </li>
               <li>
                 <span className="dn-fc-icon">📞</span>
-                <span>09678-221323</span>
+                <span>09613-241234</span>
               </li>
               <li>
                 <span className="dn-fc-icon">✉</span>

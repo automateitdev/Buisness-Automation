@@ -6,16 +6,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { NAV_ITEMS } from '@/data/siteContent';
 
 const LogoIcon = () => (
-  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-    <rect width="38" height="38" rx="8" fill="#0057A8" />
-    <path d="M10 8h8c6.627 0 12 5.373 12 12s-5.373 12-12 12h-8V8z" fill="white" opacity="0.95" />
-    <path d="M10 14h6c3.314 0 6 2.686 6 6s-2.686 6-6 6h-6V14z" fill="#0057A8" />
-    <circle cx="16" cy="20" r="2" fill="white" />
-    <path d="M24 12L28 12L28 28L24 28" stroke="white" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="28" cy="12" r="1.5" fill="#E8431A" />
-    <circle cx="28" cy="20" r="1.5" fill="#E8431A" />
-    <circle cx="28" cy="28" r="1.5" fill="#E8431A" />
-  </svg>
+  // eslint-disable-next-line @next/next/no-img-element
+  <img src="/logo.png" width="38" height="38" alt="" aria-hidden="true" style={{ display: 'block', objectFit: 'contain' }} />
 );
 
 function isActivePath(pathname, href, children) {

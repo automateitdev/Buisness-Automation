@@ -113,8 +113,8 @@ export default function ContactPageClient() {
                 <ul className="cp-office-details">
                   <li>
                     <span className="cp-detail-icon">📞</span>
-                    <a href="tel:09678221323" style={{ color: 'inherit', textDecoration: 'none' }}>
-                      09678-221323
+                    <a href="tel:09613241234" style={{ color: 'inherit', textDecoration: 'none' }}>
+                      09613-241234
                     </a>
                   </li>
                   <li>
@@ -131,7 +131,7 @@ export default function ContactPageClient() {
                   </li>
                   <li>
                     <span className="cp-detail-icon">📍</span>
-                    <span>Dhaka, Bangladesh</span>
+                    <span>House- 34/A, Road- 13/2, Block- K, South Banasree, Dhaka-1219</span>
                   </li>
                   <li>
                     <span className="cp-detail-icon">🕐</span>
@@ -168,7 +168,7 @@ export default function ContactPageClient() {
                 alignItems: 'center',
                 gap: 8,
               }}>
-                📍 <strong>Dakhin Banasree, Dhaka, Bangladesh</strong>
+                📍 <strong>South Banasree, Dhaka-1219</strong>
                 &nbsp;—&nbsp;
                 <a
                   href="https://maps.app.goo.gl/pFkFPns2sck1x5nH6"

@@ -108,7 +108,7 @@ export default function ChatWidget() {
     const botReply = {
       id: Date.now() + 1, from: 'bot', time: now(),
       text: label === 'Contact Office'
-        ? '📞 Call us: 09678-221323\n✉️ Email: info@automate.com.bd\n🌐 Website: automate.com.bd\n\nOr fill out the Contact Form tab — we typically respond within a few minutes!'
+        ? '📞 Call us: 09613-241234\n✉️ Email: info@automate.com.bd\n🌐 Website: automate.com.bd\n\nOr fill out the Contact Form tab — we typically respond within a few minutes!'
         : '📚 Our Help Centre has FAQs, guides, and tutorials. Click the link below to visit it now!',
       helpLink: label === 'Help Centre',
     };

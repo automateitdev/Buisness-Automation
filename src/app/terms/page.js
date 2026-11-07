@@ -59,7 +59,7 @@ export default function TermsPage() {
       summary="Please read these terms carefully before downloading, using, or continuing to access the Dynamic School ERP application."
       effectiveLabel="Effective date: 2023-01-19"
       sections={sections}
-      contacts={['Automate IT Limited', '09678-221323', 'info@automate.com.bd', 'automate.com.bd']}
+      contacts={['Automate IT Limited', '09613-241234', 'info@automate.com.bd', 'automate.com.bd']}
     />
   );
 }

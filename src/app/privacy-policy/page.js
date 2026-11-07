@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
       title="Privacy Policy"
       summary="This policy explains how the Dynamic School ERP application collects, uses, stores, shares, and protects personal information."
       sections={sections}
-      contacts={['Automate IT Limited', '09678-221323', 'info@automate.com.bd', 'automate.com.bd']}
+      contacts={['Automate IT Limited', '09613-241234', 'info@automate.com.bd', 'automate.com.bd']}
     />
   );
 }
