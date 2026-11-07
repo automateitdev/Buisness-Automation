@@ -152,10 +152,14 @@ export default function CareersAndContact() {
               {/* Social */}
               <p style={{fontSize:'0.78rem',fontWeight:'700',color:'var(--muted)',textTransform:'uppercase',letterSpacing:'0.1em',marginBottom:'10px'}}>{t.followUs}</p>
               <div className="social-row">
-                {[['fb','Facebook','M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z'],['li','LinkedIn','M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z'],['tw','Twitter','M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z'],['yt','YouTube','M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.41 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z']].map(([cls,label,d],si) => (
-                  <button key={cls} className={`social-btn ${cls}`} aria-label={t.social[si]} title={t.social[si]}>
+                {[
+                  ['fb', 'https://www.facebook.com/automateitbd', 0, 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z'],
+                  ['li', 'https://www.linkedin.com/company/automateitbd/', 1, 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z'],
+                  ['yt', 'https://www.youtube.com/@automateitlimited', 3, 'M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.41 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z'],
+                ].map(([cls, url, si, d]) => (
+                  <a key={cls} href={url} target="_blank" rel="noopener noreferrer" className={`social-btn ${cls}`} aria-label={t.social[si]} title={t.social[si]}>
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d={d}/>{cls==='yt'&&<polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/>}</svg>
-                  </button>
+                  </a>
                 ))}
               </div>
               <div className="map-placeholder">
